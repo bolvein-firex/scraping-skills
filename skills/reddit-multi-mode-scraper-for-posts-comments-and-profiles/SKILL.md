@@ -1,11 +1,11 @@
 ---
 name: reddit-multi-mode-scraper-for-posts-comments-and-profiles
-description: "Use the Reddit Multi-Mode Scraper for Posts, Comments & Profiles actor to pull records from Reddit and return Subreddit, title, score, author, Comment, URL. Use when the user needs a public-data lead list, a local business export, or a repeatable outbound dataset without maintaining a scraper."
+description: "Use the Reddit Multi-Mode Scraper for Posts, Comments & Profiles actor to pull conversations from Reddit and return Subreddit, title, score, author, Comment, URL. Use when the user needs a public-data lead list, a local business export, or a repeatable outbound dataset without maintaining a scraper."
 ---
 
 # Reddit Multi-Mode Scraper for Posts, Comments & Profiles
 
-Pull **records** from **Reddit** with the public Scraper Finder actor.
+Pull **conversations** from **Reddit** with the public Scraper Finder actor.
 
 - Actor: https://apify.com/nimbryxo-studio/reddit-multi-mode-scraper-for-posts-comments
 - Actor ID: `nimbryxo-studio~reddit-multi-mode-scraper-for-posts-comments`

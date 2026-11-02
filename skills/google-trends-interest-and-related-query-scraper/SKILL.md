@@ -1,11 +1,11 @@
 ---
 name: google-trends-interest-and-related-query-scraper
-description: "Use the Google Trends Interest & Related Query Scraper actor to pull records from Google Trends and return Term, Interest, Breakout, Related Query, Geo, date. Use when the user needs a trend brief, a creator list, or a content swipe file without maintaining a scraper."
+description: "Use the Google Trends Interest & Related Query Scraper actor to pull search trends from Google Trends and return Term, Interest, Breakout, Related Query, Geo, date. Use when the user needs a trend brief, a creator list, or a content swipe file without maintaining a scraper."
 ---
 
 # Google Trends Interest & Related Query Scraper
 
-Pull **records** from **Google Trends** with the public Scraper Finder actor.
+Pull **search trends** from **Google Trends** with the public Scraper Finder actor.
 
 - Actor: https://apify.com/vexaloom-labs/google-trends-interest-and-related-query-scraper
 - Actor ID: `vexaloom-labs~google-trends-interest-and-related-query-scraper`
@@ -17,7 +17,7 @@ Pull **records** from **Google Trends** with the public Scraper Finder actor.
 
 Use this skill when the user wants:
 
-- a structured export of records from Google Trends
+- a structured export of search trends from Google Trends
 - a repeatable dataset instead of manual copy-paste
 - a CSV/JSON output for a CRM, sheet, dashboard, or agent
 - a scheduled refresh of public data

@@ -1,11 +1,11 @@
 ---
 name: shopify-store-catalog-and-pricing-extractor
-description: "Use the Shopify Store Catalog & Pricing Extractor actor to pull records from Shopify and return title, price, compare-at, variant, stock, URL. Use when the user needs a price watchlist, a catalog export, or a competitor snapshot without maintaining a scraper."
+description: "Use the Shopify Store Catalog & Pricing Extractor actor to pull stores from Shopify and return title, price, compare-at, variant, stock, URL. Use when the user needs a price watchlist, a catalog export, or a competitor snapshot without maintaining a scraper."
 ---
 
 # Shopify Store Catalog & Pricing Extractor
 
-Pull **records** from **Shopify** with the public Scraper Finder actor.
+Pull **stores** from **Shopify** with the public Scraper Finder actor.
 
 - Actor: https://apify.com/nimbryxo-studio/shopify-store-catalog-and-pricing-extractor
 - Actor ID: `nimbryxo-studio~shopify-store-catalog-and-pricing-extractor`
@@ -17,7 +17,7 @@ Pull **records** from **Shopify** with the public Scraper Finder actor.
 
 Use this skill when the user wants:
 
-- a structured export of records from Shopify
+- a structured export of stores from Shopify
 - a repeatable dataset instead of manual copy-paste
 - a CSV/JSON output for a CRM, sheet, dashboard, or agent
 - a scheduled refresh of public data

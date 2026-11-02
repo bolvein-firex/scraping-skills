@@ -1,11 +1,11 @@
 ---
 name: website-contact-page-email-and-phone-crawler
-description: "Use the Website Contact Page Email & Phone Crawler actor to pull records from the web and return domain, email, phone, source page, MX status, status. Use when the user needs a public-data lead list, a local business export, or a repeatable outbound dataset without maintaining a scraper."
+description: "Use the Website Contact Page Email & Phone Crawler actor to pull contact pages from the web and return domain, email, phone, source page, MX status, status. Use when the user needs a public-data lead list, a local business export, or a repeatable outbound dataset without maintaining a scraper."
 ---
 
 # Website Contact Page Email & Phone Crawler
 
-Pull **records** from **the web** with the public Scraper Finder actor.
+Pull **contact pages** from **the web** with the public Scraper Finder actor.
 
 - Actor: https://apify.com/nimbryxo-studio/website-contact-page-email-and-phone-crawler
 - Actor ID: `nimbryxo-studio~website-contact-page-email-and-phone-crawler`

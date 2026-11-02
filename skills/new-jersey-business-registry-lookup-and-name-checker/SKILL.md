@@ -1,11 +1,11 @@
 ---
 name: new-jersey-business-registry-lookup-and-name-checker
-description: "Use the New Jersey Business Registry Lookup & Name Checker actor to pull records from the state registry and return entity name, status, formed date, agent, city, URL. Use when the user needs a public-data lead list, a local business export, or a repeatable outbound dataset without maintaining a scraper."
+description: "Use the New Jersey Business Registry Lookup & Name Checker actor to pull business entities from the state registry and return entity name, status, formed date, agent, city, URL. Use when the user needs a public-data lead list, a local business export, or a repeatable outbound dataset without maintaining a scraper."
 ---
 
 # New Jersey Business Registry Lookup & Name Checker
 
-Pull **records** from **the state registry** with the public Scraper Finder actor.
+Pull **business entities** from **the state registry** with the public Scraper Finder actor.
 
 - Actor: https://apify.com/vexaloom-labs/new-jersey-business-registry-lookup-and-name
 - Actor ID: `vexaloom-labs~new-jersey-business-registry-lookup-and-name`
