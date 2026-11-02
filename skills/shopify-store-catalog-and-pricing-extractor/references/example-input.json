@@ -1,0 +1,5 @@
+{
+  "storeUrl": "https://example-store.com",
+  "includeVariants": true,
+  "includeSoldOut": true
+}

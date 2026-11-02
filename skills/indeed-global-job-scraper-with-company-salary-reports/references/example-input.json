@@ -1,0 +1,8 @@
+{
+  "searchQueries": [
+    "account executive"
+  ],
+  "location": "United States",
+  "maxItems": 1000,
+  "includeSalary": true
+}

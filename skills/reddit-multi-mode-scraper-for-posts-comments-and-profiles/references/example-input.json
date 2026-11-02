@@ -1,0 +1,9 @@
+{
+  "subreddits": [
+    "smallbusiness",
+    "SaaS"
+  ],
+  "searchQuery": "lead generation",
+  "maxItems": 1000,
+  "includeComments": true
+}

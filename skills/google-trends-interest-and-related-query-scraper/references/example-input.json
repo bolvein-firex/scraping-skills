@@ -1,0 +1,9 @@
+{
+  "terms": [
+    "ai agents",
+    "n8n workflows"
+  ],
+  "geo": "US",
+  "timeRange": "today 3-m",
+  "includeRelatedQueries": true
+}

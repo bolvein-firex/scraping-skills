@@ -1,0 +1,8 @@
+{
+  "websites": [
+    "example.com",
+    "anotherbrand.com"
+  ],
+  "maxContactPages": 3,
+  "verifyMx": true
+}

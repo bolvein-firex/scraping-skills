@@ -1,0 +1,11 @@
+{
+  "mode": "trendingHashtags",
+  "countries": [
+    "US"
+  ],
+  "periods": [
+    7
+  ],
+  "includeCreatorLeaders": true,
+  "maxItems": 100
+}
