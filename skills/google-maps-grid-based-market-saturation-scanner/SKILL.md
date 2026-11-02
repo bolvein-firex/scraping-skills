@@ -1,6 +1,6 @@
 ---
 name: google-maps-grid-based-market-saturation-scanner
-description: "Use the Google Maps Grid-Based Market Saturation Scanner actor to pull local business listings from Google Maps and return Grid Point, rank, business, rating, reviews, Distance. Use when the user needs a public-data lead list, a local business export, or a repeatable outbound dataset without maintaining a scraper."
+description: "Use the Google Maps Grid-Based Market Saturation Scanner actor to pull local business listings from Google Maps and return Grid Point, rank, business, rating, reviews, Distance. Use when the user needs a listing export, a farm list, or a market snapshot without maintaining a scraper."
 ---
 
 # Google Maps Grid-Based Market Saturation Scanner
@@ -17,7 +17,7 @@ Pull **local business listings** from **Google Maps** with the public Scraper Fi
 
 Use this skill when the user wants:
 
-- a local business or B2B lead list with public contact details
+- a structured export of local business listings from Google Maps
 - a repeatable dataset instead of manual copy-paste
 - a CSV/JSON output for a CRM, sheet, dashboard, or agent
 - a scheduled refresh of public data

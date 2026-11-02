@@ -1,6 +1,6 @@
 ---
 name: indeed-global-job-scraper-with-company-salary-reports
-description: "Use the Indeed Global Job Scraper with Company Salary Reports actor to pull jobs from Indeed and return title, company, location, salary, posted date, URL. Use when the user needs a public-data lead list, a local business export, or a repeatable outbound dataset without maintaining a scraper."
+description: "Use the Indeed Global Job Scraper with Company Salary Reports actor to pull jobs from Indeed and return title, company, location, salary, posted date, URL. Use when the user needs a hiring list, a salary dataset, or a market map without maintaining a scraper."
 ---
 
 # Indeed Global Job Scraper with Company Salary Reports
@@ -17,7 +17,7 @@ Pull **jobs** from **Indeed** with the public Scraper Finder actor.
 
 Use this skill when the user wants:
 
-- a local business or B2B lead list with public contact details
+- a structured export of jobs from Indeed
 - a repeatable dataset instead of manual copy-paste
 - a CSV/JSON output for a CRM, sheet, dashboard, or agent
 - a scheduled refresh of public data

@@ -1,6 +1,6 @@
 ---
 name: zillow-for-sale-rent-and-sold-listing-extractor
-description: "Use the Zillow For-Sale, Rent & Sold Listing Extractor actor to pull listings from Zillow and return address, price, beds, baths, days on market, price cut. Use when the user needs a public-data lead list, a local business export, or a repeatable outbound dataset without maintaining a scraper."
+description: "Use the Zillow For-Sale, Rent & Sold Listing Extractor actor to pull listings from Zillow and return address, price, beds, baths, days on market, price cut. Use when the user needs a listing export, a farm list, or a market snapshot without maintaining a scraper."
 ---
 
 # Zillow For-Sale, Rent & Sold Listing Extractor
@@ -17,7 +17,7 @@ Pull **listings** from **Zillow** with the public Scraper Finder actor.
 
 Use this skill when the user wants:
 
-- a local business or B2B lead list with public contact details
+- a structured export of listings from Zillow
 - a repeatable dataset instead of manual copy-paste
 - a CSV/JSON output for a CRM, sheet, dashboard, or agent
 - a scheduled refresh of public data

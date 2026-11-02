@@ -21,6 +21,7 @@ Agent skills for the **Scraper Finder** channel. Each skill wraps a public Apify
 | [Google Trends Interest & Related Query Scraper](skills/google-trends-interest-and-related-query-scraper/SKILL.md) | Google Trends | Term, Interest, Breakout, Related Query |
 | [Reddit Multi-Mode Scraper for Posts, Comments & Profiles](skills/reddit-multi-mode-scraper-for-posts-comments-and-profiles/SKILL.md) | Reddit | Subreddit, title, score, author |
 | [New Jersey Business Registry Lookup & Name Checker](skills/new-jersey-business-registry-lookup-and-name-checker/SKILL.md) | the state registry | entity name, status, formed date, agent |
+| [Amazon Customer Review & Rating Summary Scraper](skills/amazon-customer-review-and-rating-summary-scraper/SKILL.md) | Amazon | author, rating, text, date |
 
 ## Install
 
