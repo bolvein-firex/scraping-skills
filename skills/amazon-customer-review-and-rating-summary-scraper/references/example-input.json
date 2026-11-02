@@ -1,19 +1,8 @@
 {
-  "keywords": [],
-  "categoryUrls": [],
-  "maxProductsToDiscover": 5,
+  "keywords": [
+    "wireless earbuds"
+  ],
   "country": "amazon.com",
   "maxReviews": 100,
-  "extendedHistory": true,
-  "mergeMarketplaces": [],
-  "sortBy": "helpful",
-  "verifiedPurchasesOnly": false,
-  "filterKeywords": [],
-  "mediaReviewsOnly": false,
-  "includeImages": true,
-  "includeAggregates": true,
-  "includeGdprSensitive": false,
-  "productUrls": [
-    "https://www.amazon.com/dp/B0EXAMPLE"
-  ]
+  "includeAggregates": true
 }

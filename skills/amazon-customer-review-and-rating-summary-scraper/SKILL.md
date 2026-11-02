@@ -1,6 +1,6 @@
 ---
 name: amazon-customer-review-and-rating-summary-scraper
-description: "Use the Amazon Customer Review & Rating Summary Scraper actor to pull review data from Amazon and return author, rating, text, date, business, URL. Use when the user needs a price watchlist, a catalog export, or a competitor snapshot without maintaining a scraper."
+description: "Use the Amazon Customer Review & Rating Summary Scraper actor to pull review data from Amazon and return author, rating, verified, date, text, URL. Use when the user needs a price watchlist, a catalog export, or a competitor snapshot without maintaining a scraper."
 ---
 
 # Amazon Customer Review & Rating Summary Scraper
@@ -28,9 +28,9 @@ Do not use it for private, login-protected, or paywalled data.
 
 - author
 - rating
-- text
+- verified
 - date
-- business
+- text
 - URL
 
 ## Inputs
@@ -56,23 +56,12 @@ Example:
 
 ```json
 {
-  "keywords": [],
-  "categoryUrls": [],
-  "maxProductsToDiscover": 5,
+  "keywords": [
+    "wireless earbuds"
+  ],
   "country": "amazon.com",
   "maxReviews": 100,
-  "extendedHistory": true,
-  "mergeMarketplaces": [],
-  "sortBy": "helpful",
-  "verifiedPurchasesOnly": false,
-  "filterKeywords": [],
-  "mediaReviewsOnly": false,
-  "includeImages": true,
-  "includeAggregates": true,
-  "includeGdprSensitive": false,
-  "productUrls": [
-    "https://www.amazon.com/dp/B0EXAMPLE"
-  ]
+  "includeAggregates": true
 }
 ```
 
