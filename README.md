@@ -20,6 +20,7 @@ New public-data workflow every day. Free. No email. No course.
 
 | Skill | Platform | Output |
 |---|---|---|
+| [Amazon Customer Review & Rating Summary Scraper](skills/amazon-customer-review-and-rating-summary-scraper/SKILL.md) | Amazon | author, rating, text, verified |
 | [Google Maps Grid-Based Market Saturation Scanner](skills/google-maps-grid-based-market-saturation-scanner/SKILL.md) | Google Maps | business, rating, reviews, Grid Point |
 | [Shopify Store Catalog & Pricing Extractor](skills/shopify-store-catalog-and-pricing-extractor/SKILL.md) | Shopify | title, price, stock, compare-at |
 | [TikTok Hashtag Momentum & Top Creator Tracker](skills/tiktok-hashtag-momentum-and-top-creator-tracker/SKILL.md) | TikTok | hashtag, views, momentum, top creator |
@@ -32,7 +33,6 @@ New public-data workflow every day. Free. No email. No course.
 | [Google Trends Interest & Related Query Scraper](skills/google-trends-interest-and-related-query-scraper/SKILL.md) | Google Trends | Term, Interest, Breakout, Related Query |
 | [Reddit Multi-Mode Scraper for Posts, Comments & Profiles](skills/reddit-multi-mode-scraper-for-posts-comments-and-profiles/SKILL.md) | Reddit | score, author, title, Subreddit |
 | [New Jersey Business Registry Lookup & Name Checker](skills/new-jersey-business-registry-lookup-and-name-checker/SKILL.md) | the state registry | entity name, agent, status, formed date |
-| [Amazon Customer Review & Rating Summary Scraper](skills/amazon-customer-review-and-rating-summary-scraper/SKILL.md) | Amazon | author, rating, text, verified |
 
 ## Install
 
