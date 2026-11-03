@@ -2,8 +2,19 @@
 
 Agent skills for the **Scraper Finder** channel. Each skill wraps a public Apify actor with a clear input contract, output fields, a runnable example, and guardrails.
 
+**Watch the 45-second breakdown:** https://www.youtube.com/@ScraperFinder
+
+New public-data workflow every day. Free. No email. No course.
+
 - n8n workflows: https://github.com/bolvein-firex/scraping-n8n-workflows
-- Channel: @scraperfinder
+- Channel: https://www.youtube.com/@ScraperFinder
+
+## Start here
+
+1. Watch the short on the channel: https://www.youtube.com/@ScraperFinder
+2. Pick the skill for your agent below.
+3. Copy the folder into your agent's skills directory.
+4. Run it with your own Apify token.
 
 ## Skills
 
