@@ -1,6 +1,6 @@
 ---
 name: website-contact-page-email-and-phone-crawler
-description: "Crawl a website's contact, about and team pages and collect its public emails, phone numbers, and social media profile links in one normalized record per site. Output fields: websiteUrl, status, emails, primaryEmail, phones and more, as JSON rows. Use when the user asks for Find emails and phone numbers from a list of websites, website email extractor, contact page scraper, or a CSV/JSON export of public Any website data."
+description: "Crawl a website's contact, about and team pages and collect its public emails, phone numbers, and social media profile links in one normalized record per site. Output fields: websiteUrl, status, emails, primaryEmail, phones and more, as JSON rows. Use it for requests like \"Find emails and phone numbers from a list of websites\", \"website email extractor\", \"contact page scraper\", or a CSV/JSON export of public Any website data."
 ---
 
 # Website Contact Page Email & Phone Crawler

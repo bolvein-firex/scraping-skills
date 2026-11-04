@@ -1,6 +1,6 @@
 ---
 name: aliexpress-multi-region-search-store-and-review-scraper
-description: "Search AliExpress or fetch product, store, and review records by ID or URL across 18 regional storefronts and 42 currencies, with price, rating, and ship-from/ship-to filters. Output fields: title, salePrice, originalPrice, discountPercent, rating and more, as JSON rows. Use when the user asks for AliExpress product search export, AliExpress scraper, dropshipping product research, or a CSV/JSON export of public AliExpress data."
+description: "Search AliExpress or fetch product, store, and review records by ID or URL across 18 regional storefronts and 42 currencies, with price, rating, and ship-from/ship-to filters. Output fields: title, salePrice, originalPrice, discountPercent, rating and more, as JSON rows. Use it for requests like \"AliExpress product search export\", \"AliExpress scraper\", \"dropshipping product research\", or a CSV/JSON export of public AliExpress data."
 ---
 
 # AliExpress Multi-Region Search, Store & Review Scraper

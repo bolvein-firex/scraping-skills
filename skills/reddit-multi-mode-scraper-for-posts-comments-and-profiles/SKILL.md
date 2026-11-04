@@ -1,6 +1,6 @@
 ---
 name: reddit-multi-mode-scraper-for-posts-comments-and-profiles
-description: "Pick one of five modes to pull subreddit posts, full comment threads, user profiles, keyword search results or curated community listings from Reddit, each with deep post/comment filters. No account or API key needed. Output fields: subreddit_prefixed, title, author, score, commentCount and more, as JSON rows. Use when the user asks for Reddit posts and comments scraper, subreddit export, Reddit keyword search, or a CSV/JSON export of public Reddit data."
+description: "Pick one of five modes to pull subreddit posts, full comment threads, user profiles, keyword search results or curated community listings from Reddit, each with deep post/comment filters. No account or API key needed. Output fields: subreddit_prefixed, title, author, score, commentCount and more, as JSON rows. Use it for requests like \"Reddit posts and comments scraper\", \"subreddit export\", \"Reddit keyword search\", or a CSV/JSON export of public Reddit data."
 ---
 
 # Reddit Multi-Mode Scraper for Posts, Comments & Profiles

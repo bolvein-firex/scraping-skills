@@ -1,6 +1,6 @@
 ---
 name: google-shopping-price-comparison-and-deal-finder
-description: "Search Google Shopping by keyword and collect product prices, discounts, merchant names, ratings, and delivery info across 48 countries for price monitoring and deal tracking. Output fields: title, price, merchant, rating, reviewCount and more, as JSON rows. Use when the user asks for Google Shopping price comparison, price monitoring, deal tracking, or a CSV/JSON export of public Google Shopping data."
+description: "Search Google Shopping by keyword and collect product prices, discounts, merchant names, ratings, and delivery info across 48 countries for price monitoring and deal tracking. Output fields: title, price, merchant, rating, reviewCount and more, as JSON rows. Use it for requests like \"Google Shopping price comparison\", \"price monitoring\", \"deal tracking\", or a CSV/JSON export of public Google Shopping data."
 ---
 
 # Google Shopping Price Comparison & Deal Finder

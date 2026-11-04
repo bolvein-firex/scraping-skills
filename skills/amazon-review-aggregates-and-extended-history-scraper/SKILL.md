@@ -1,6 +1,6 @@
 ---
 name: amazon-review-aggregates-and-extended-history-scraper
-description: "Collect Amazon customer reviews and rating summaries by product URL, ASIN, or keyword across 19 marketplaces, with star-rating and sort filters, reviewer images, and an optional session for deeper review history. Output fields: productAsin, ratingScore, reviewTitle, reviewDescription, isVerified and more, as JSON rows. Use when the user asks for Amazon reviews across marketplaces, Amazon review history, reviews by ASIN, or a CSV/JSON export of public Amazon data."
+description: "Collect Amazon customer reviews and rating summaries by product URL, ASIN, or keyword across 19 marketplaces, with star-rating and sort filters, reviewer images, and an optional session for deeper review history. Output fields: productAsin, ratingScore, reviewTitle, reviewDescription, isVerified and more, as JSON rows. Use it for requests like \"Amazon reviews across marketplaces\", \"Amazon review history\", \"reviews by ASIN\", or a CSV/JSON export of public Amazon data."
 ---
 
 # Amazon Review Aggregates & Extended History Scraper

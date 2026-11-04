@@ -1,6 +1,6 @@
 ---
 name: indeed-global-job-scraper-with-company-salary-reports
-description: "Search Indeed jobs across 62 countries by keyword, location, or filters for job type, remote status, experience, education, and salary. Returns full descriptions, structured salaries, and each employer's ratings and salary-by-title reports. Output fields: positionName, displayTitle, company, rating, salary and more, as JSON rows. Use when the user asks for Indeed job scraper with salaries, job postings export, salary data by title, or a CSV/JSON export of public Indeed data."
+description: "Search Indeed jobs across 62 countries by keyword, location, or filters for job type, remote status, experience, education, and salary. Returns full descriptions, structured salaries, and each employer's ratings and salary-by-title reports. Output fields: positionName, displayTitle, company, rating, salary and more, as JSON rows. Use it for requests like \"Indeed job scraper with salaries\", \"job postings export\", \"salary data by title\", or a CSV/JSON export of public Indeed data."
 ---
 
 # Indeed Global Job Scraper with Company Salary Reports

@@ -1,6 +1,6 @@
 ---
 name: zillow-for-sale-rent-and-sold-listing-extractor
-description: "Search Zillow by city, state or ZIP for active, rental or recently sold listings, with pricing, Zestimate, agent, school, tax and price history for each property. Output fields: address, price, soldPrice, beds, baths and more, as JSON rows. Use when the user asks for Zillow for-sale, rental and sold listings, Zillow scraper, real estate comps, or a CSV/JSON export of public Zillow data."
+description: "Search Zillow by city, state or ZIP for active, rental or recently sold listings, with pricing, Zestimate, agent, school, tax and price history for each property. Output fields: address, price, soldPrice, beds, baths and more, as JSON rows. Use it for requests like \"Zillow for-sale, rental and sold listings\", \"Zillow scraper\", \"real estate comps\", or a CSV/JSON export of public Zillow data."
 ---
 
 # Zillow For-Sale, Rent & Sold Listing Extractor

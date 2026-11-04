@@ -1,6 +1,6 @@
 ---
 name: amazon-multi-domain-product-price-and-detail-scraper
-description: "Pull pricing, ratings, seller, variant and technical detail for Amazon products by URL or ASIN, across 21 country domains, with optional delivery postal-code targeting. Output fields: title, asin, price, stars, reviewsCount and more, as JSON rows. Use when the user asks for Amazon price tracking, Amazon product scraper, ASIN price lookup, or a CSV/JSON export of public Amazon data."
+description: "Pull pricing, ratings, seller, variant and technical detail for Amazon products by URL or ASIN, across 21 country domains, with optional delivery postal-code targeting. Output fields: title, asin, price, stars, reviewsCount and more, as JSON rows. Use it for requests like \"Amazon price tracking\", \"Amazon product scraper\", \"ASIN price lookup\", or a CSV/JSON export of public Amazon data."
 ---
 
 # Amazon Multi-Domain Product Price & Detail Scraper

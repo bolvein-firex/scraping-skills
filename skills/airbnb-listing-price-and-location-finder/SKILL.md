@@ -1,6 +1,6 @@
 ---
 name: airbnb-listing-price-and-location-finder
-description: "Search Airbnb by location and stay dates for listing price, rating, Superhost and verification status, GPS coordinates, and photos per property. Output fields: name, nightlyPrice, totalPrice, rating, reviewCount and more, as JSON rows. Use when the user asks for Airbnb price scraper, short-term rental comps, Airbnb listings by city, or a CSV/JSON export of public Airbnb data."
+description: "Search Airbnb by location and stay dates for listing price, rating, Superhost and verification status, GPS coordinates, and photos per property. Output fields: name, nightlyPrice, totalPrice, rating, reviewCount and more, as JSON rows. Use it for requests like \"Airbnb price scraper\", \"short-term rental comps\", \"Airbnb listings by city\", or a CSV/JSON export of public Airbnb data."
 ---
 
 # Airbnb Listing Price & Location Finder

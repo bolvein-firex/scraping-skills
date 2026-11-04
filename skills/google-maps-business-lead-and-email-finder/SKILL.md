@@ -1,6 +1,6 @@
 ---
 name: google-maps-business-lead-and-email-finder
-description: "Find business leads on Google Maps by category, keyword, or location and collect name, address, phone, website, rating, review count, and coordinates. Optionally adds emails and social links found on each business's own website. Output fields: name, googleBusinessCategories, phoneNumber, email, reviewScore and more, as JSON rows. Use when the user asks for Google Maps leads with emails, Google Maps scraper, local business leads, or a CSV/JSON export of public Google Maps data."
+description: "Find business leads on Google Maps by category, keyword, or location and collect name, address, phone, website, rating, review count, and coordinates. Optionally adds emails and social links found on each business's own website. Output fields: name, googleBusinessCategories, phoneNumber, email, reviewScore and more, as JSON rows. Use it for requests like \"Google Maps leads with emails\", \"Google Maps scraper\", \"local business leads\", or a CSV/JSON export of public Google Maps data."
 ---
 
 # Google Maps Business Lead & Email Finder

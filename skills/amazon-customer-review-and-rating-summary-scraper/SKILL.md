@@ -1,6 +1,6 @@
 ---
 name: amazon-customer-review-and-rating-summary-scraper
-description: "Get Amazon customer reviews and a product-level rating summary by product URL, keyword, or category, with star-rating and sort filters, across 23 Amazon domains. Output fields: productAsin, ratingScore, reviewTitle, reviewDescription, isVerified and more, as JSON rows. Use when the user asks for Amazon review scraper, Amazon rating summary, product review export, or a CSV/JSON export of public Amazon data."
+description: "Get Amazon customer reviews and a product-level rating summary by product URL, keyword, or category, with star-rating and sort filters, across 23 Amazon domains. Output fields: productAsin, ratingScore, reviewTitle, reviewDescription, isVerified and more, as JSON rows. Use it for requests like \"Amazon review scraper\", \"Amazon rating summary\", \"product review export\", or a CSV/JSON export of public Amazon data."
 ---
 
 # Amazon Customer Review & Rating Summary Scraper

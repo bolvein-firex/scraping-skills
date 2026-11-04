@@ -1,6 +1,6 @@
 ---
 name: us-walkability-transit-and-bike-score-extractor
-description: "Looks up Walk Score, Transit Score, and Bike Score for any US city or street address, returning each 0-100 score with its rating label and nearby amenity categories. Output fields: address, locationType, walkScore, transitScore, bikeScore and more, as JSON rows. Use when the user asks for Walk Score for a list of addresses, walkability score lookup, transit score, or a CSV/JSON export of public Walk Score data."
+description: "Looks up Walk Score, Transit Score, and Bike Score for any US city or street address, returning each 0-100 score with its rating label and nearby amenity categories. Output fields: address, locationType, walkScore, transitScore, bikeScore and more, as JSON rows. Use it for requests like \"Walk Score for a list of addresses\", \"walkability score lookup\", \"transit score\", or a CSV/JSON export of public Walk Score data."
 ---
 
 # US Walkability, Transit & Bike Score Extractor

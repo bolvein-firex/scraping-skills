@@ -1,6 +1,6 @@
 ---
 name: booking-com-hotel-price-and-amenity-search-scraper
-description: "Search Booking.com for a destination and dates, and collect each property's price, rating, review count, amenities, and breakfast info for the stay you specify. Output fields: name, price, pricePerNight, rating, reviewCount and more, as JSON rows. Use when the user asks for Booking.com hotel prices for your dates, hotel rate shopping, Booking.com scraper, or a CSV/JSON export of public Booking.com data."
+description: "Search Booking.com for a destination and dates, and collect each property's price, rating, review count, amenities, and breakfast info for the stay you specify. Output fields: name, price, pricePerNight, rating, reviewCount and more, as JSON rows. Use it for requests like \"Booking.com hotel prices for your dates\", \"hotel rate shopping\", \"Booking.com scraper\", or a CSV/JSON export of public Booking.com data."
 ---
 
 # Booking.com Hotel Price & Amenity Search Scraper

@@ -1,6 +1,6 @@
 ---
 name: google-maps-grid-based-market-saturation-scanner
-description: "Cover a bounding box, circle, or custom polygon with a search grid to collect every business Google Maps exposes for a query, well beyond the usual 120-result cap on a single search. Output fields: name, categoryName, totalScore, reviewsCount, phone and more, as JSON rows. Use when the user asks for Google Maps search beyond 120 results, Google Maps grid search, local market saturation, or a CSV/JSON export of public Google Maps data."
+description: "Cover a bounding box, circle, or custom polygon with a search grid to collect every business Google Maps exposes for a query, well beyond the usual 120-result cap on a single search. Output fields: name, categoryName, totalScore, reviewsCount, phone and more, as JSON rows. Use it for requests like \"Google Maps search beyond 120 results\", \"Google Maps grid search\", \"local market saturation\", or a CSV/JSON export of public Google Maps data."
 ---
 
 # Google Maps Grid-Based Market Saturation Scanner

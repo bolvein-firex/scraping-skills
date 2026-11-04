@@ -1,6 +1,6 @@
 ---
 name: new-jersey-business-registry-lookup-and-name-checker
-description: "Look up New Jersey registered businesses by name, keyword or entity ID, and check whether a candidate business name is available for a new filing. Returns entity ID, entity type, city and incorporation date. Output fields: businessName, entityTypeAbbr, entityTypeFull, city, incorporatedDate and more, as JSON rows. Use when the user asks for New Jersey business entity search, business name availability check, or a CSV/JSON export of public NJ business registry data."
+description: "Look up New Jersey registered businesses by name, keyword or entity ID, and check whether a candidate business name is available for a new filing. Returns entity ID, entity type, city and incorporation date. Output fields: businessName, entityTypeAbbr, entityTypeFull, city, incorporatedDate and more, as JSON rows. Use it for requests like \"New Jersey business entity search\", \"business name availability check\", or a CSV/JSON export of public NJ business registry data."
 ---
 
 # New Jersey Business Registry Lookup & Name Checker

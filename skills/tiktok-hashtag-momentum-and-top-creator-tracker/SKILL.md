@@ -1,6 +1,6 @@
 ---
 name: tiktok-hashtag-momentum-and-top-creator-tracker
-description: "Reads TikTok Creative Center's trending-hashtag list for any country and returns rank, post and view counts, a day-by-day momentum curve, and top creators behind each trend. Output fields: rankIndex, hashtagName, publishCnt, vv and more, as JSON rows. Use when the user asks for TikTok trending hashtags, TikTok Creative Center hashtags, TikTok trend tracker, or a CSV/JSON export of public TikTok data."
+description: "Reads TikTok Creative Center's trending-hashtag list for any country and returns rank, post and view counts, a day-by-day momentum curve, and top creators behind each trend. Output fields: rankIndex, hashtagName, publishCnt, vv and more, as JSON rows. Use it for requests like \"TikTok trending hashtags\", \"TikTok Creative Center hashtags\", \"TikTok trend tracker\", or a CSV/JSON export of public TikTok data."
 ---
 
 # TikTok Hashtag Momentum & Top Creator Tracker

@@ -1,6 +1,6 @@
 ---
 name: facebook-marketplace-listing-and-price-extractor
-description: "Extract public Facebook Marketplace listings by city feed, category, keyword search, or direct item URL, with price, location, photos, delivery method, seller, and listing status per item. Output fields: title, price, city, state, locationText and more, as JSON rows. Use when the user asks for Facebook Marketplace scraper, Marketplace listings by city, used item prices, or a CSV/JSON export of public Facebook Marketplace data."
+description: "Extract public Facebook Marketplace listings by city feed, category, keyword search, or direct item URL, with price, location, photos, delivery method, seller, and listing status per item. Output fields: title, price, city, state, locationText and more, as JSON rows. Use it for requests like \"Facebook Marketplace scraper\", \"Marketplace listings by city\", \"used item prices\", or a CSV/JSON export of public Facebook Marketplace data."
 ---
 
 # Facebook Marketplace Listing & Price Extractor

@@ -1,6 +1,6 @@
 ---
 name: google-trends-interest-and-related-query-scraper
-description: "Get interest-over-time, interest-by-region, and related topics/queries for any keyword, location, time range and Google surface, with side-by-side comparison for up to five keywords. Output fields: searchTerms, title, geoName, averageInterest, growthPercent and more, as JSON rows. Use when the user asks for Export Google Trends data, Google Trends scraper, related queries, or a CSV/JSON export of public Google Trends data."
+description: "Get interest-over-time, interest-by-region, and related topics/queries for any keyword, location, time range and Google surface, with side-by-side comparison for up to five keywords. Output fields: searchTerms, title, geoName, averageInterest, growthPercent and more, as JSON rows. Use it for requests like \"Export Google Trends data\", \"Google Trends scraper\", \"related queries\", or a CSV/JSON export of public Google Trends data."
 ---
 
 # Google Trends Interest & Related Query Scraper

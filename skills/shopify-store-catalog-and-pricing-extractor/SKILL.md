@@ -1,6 +1,6 @@
 ---
 name: shopify-store-catalog-and-pricing-extractor
-description: "Extract a Shopify store's product catalog with titles, prices, compare-at prices, variants, SKUs, images and stock availability from any custom or myshopify.com domain. Output fields: title, price, compareAtPrice, available, vendor and more, as JSON rows. Use when the user asks for Scrape a Shopify store's products and prices, Shopify product scraper, competitor catalog export, or a CSV/JSON export of public Shopify data."
+description: "Extract a Shopify store's product catalog with titles, prices, compare-at prices, variants, SKUs, images and stock availability from any custom or myshopify.com domain. Output fields: title, price, compareAtPrice, available, vendor and more, as JSON rows. Use it for requests like \"Scrape a Shopify store's products and prices\", \"Shopify product scraper\", \"competitor catalog export\", or a CSV/JSON export of public Shopify data."
 ---
 
 # Shopify Store Catalog & Pricing Extractor
