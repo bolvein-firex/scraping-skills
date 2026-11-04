@@ -1,43 +1,50 @@
 ---
 name: aliexpress-multi-region-search-store-and-review-scraper
-description: "Use the AliExpress Multi-Region Search, Store & Review Scraper actor to pull review data from AliExpress and return author, rating, text, date, business, URL. Use when the user needs a price watchlist, a catalog export, or a competitor snapshot without maintaining a scraper."
+description: "Search AliExpress or fetch product, store, and review records by ID or URL across 18 regional storefronts and 42 currencies, with price, rating, and ship-from/ship-to filters. Output fields: title, salePrice, originalPrice, discountPercent, rating and more, as JSON rows. Use when the user asks for AliExpress product search export, AliExpress scraper, dropshipping product research, or a CSV/JSON export of public AliExpress data."
 ---
 
 # AliExpress Multi-Region Search, Store & Review Scraper
 
-Pull **review data** from **AliExpress** with the public Scraper Finder actor.
+Search AliExpress or fetch product, store, and review records by ID or URL across 18 regional storefronts and 42 currencies, with price, rating, and ship-from/ship-to filters.
 
-- Actor: https://apify.com/vexaloom-labs/aliexpress-multi-region-search-store-and-review
-- Actor ID: `vexaloom-labs~aliexpress-multi-region-search-store-and-review`
-- n8n workflow: https://github.com/bolvein-firex/scraping-n8n-workflows/blob/main/workflows/aliexpress-multi-region-search-store-and-review-scraper.json
+- Actor: https://apify.com/vexaloom-labs/aliexpress-multi-region-search-store-and-review (ID `vexaloom-labs~aliexpress-multi-region-search-store-and-review`)
+- n8n workflow for the same Actor: https://github.com/bolvein-firex/scraping-n8n-workflows/blob/main/docs/aliexpress-multi-region-search-store-and-review-scraper.md
 - Example input: `references/example-input.json`
 - Input schema: `references/input-schema.json`
+- Output fields: `references/output-fields.json`
 
 ## When to use
 
 Use this skill when the user wants:
 
-- a structured export of review data from AliExpress
-- a repeatable dataset instead of manual copy-paste
-- a CSV/JSON output for a CRM, sheet, dashboard, or agent
-- a scheduled refresh of public data
+- AliExpress product search export
+- AliExpress scraper
+- dropshipping product research
+- a repeatable export of public AliExpress data as CSV or JSON
 
-Do not use it for private, login-protected, or paywalled data.
+Do not use it for private, login-protected or paywalled data.
 
 ## What it returns
 
-- author
-- rating
-- text
-- date
-- business
-- URL
+One JSON row per result. Columns from the Actor's dataset schema:
+
+- `title`: Title
+- `productId`: Product Id
+- `salePrice`: Sale Price
+- `originalPrice`: Original Price
+- `currencyCode`: Currency Code
+- `discountPercent`: Discount Percent
+- `rating`: Rating
+- `ordersCount`: Orders Count
+- `shipFromCountry`: Ship From Country
+- `productUrl`: Product Url
+- `isSponsored`: Is Sponsored
 
 ## Inputs
 
 | Field | Type | Required | Default | Notes |
 |---|---|---|---|---|
-| `mode` | string | yes | search | What to collect. search: keyword results. byProduct: product lookup by ID or URL. byStore: store lookup. byReviews: customer reviews. byUrl: auto-detect from pasted AliExpress link |
+| `mode` | string | yes | search | What to collect. search: keyword results. byProduct: product lookup by ID or URL. byStore: store lookup. byReviews: customer reviews. |
 | `searchQueries` | array | no |  | One or more keywords, e.g. "phone case" or "wireless earbuds". Each query is scraped up to maxPages pages. |
 | `productIds` | array | no |  | Numeric AliExpress product IDs or item URLs. Both 1005… and 3256… ID formats are accepted. |
 | `storeIds` | array | no |  | Numeric store IDs or /store/… URLs. |
@@ -51,6 +58,8 @@ Do not use it for private, login-protected, or paywalled data.
 | `ratingMin` | number | no | 0 | Minimum star rating from 0 to 5. Products without a rating are skipped when a threshold is set. |
 | `shipFrom` | string | no |  | Only show items stocked in this country. Leave blank for any warehouse. |
 | `freeShippingOnly` | boolean | no | false | Only show items advertised with free shipping. |
+
+10 more optional fields on the Actor's Input tab.
 
 Example:
 
@@ -82,42 +91,35 @@ Example:
 
 ## Run it
 
-Set `APIFY_TOKEN` in your environment, then call the synchronous endpoint for small and medium runs:
+Set `APIFY_TOKEN`, then call the synchronous endpoint for small and medium runs (it waits up to 300 seconds):
 
 ```bash
-curl -s -X POST "https://api.apify.com/v2/acts/vexaloom-labs~aliexpress-multi-region-search-store-and-review/run-sync-get-dataset-items?token=$APIFY_TOKEN" \
+curl -s -X POST "https://api.apify.com/v2/acts/vexaloom-labs~aliexpress-multi-region-search-store-and-review/run-sync-get-dataset-items" \
+  -H "Authorization: Bearer $APIFY_TOKEN" \
   -H "Content-Type: application/json" \
-  -d @references/example-input.json
+  -d @references/example-input.json > output.json
 ```
 
-For large runs, start an async run and read the dataset:
+Or with Node 18+: `node scripts/run.mjs [input.json]`.
+
+For large runs, start an async run and read its dataset when it finishes:
 
 ```bash
-RUN=$(curl -s -X POST "https://api.apify.com/v2/acts/vexaloom-labs~aliexpress-multi-region-search-store-and-review/runs?token=$APIFY_TOKEN" \
-  -H "Content-Type: application/json" \
-  -d @references/example-input.json | jq -r '.data.id')
-
-curl -s "https://api.apify.com/v2/actor-runs/$RUN?token=$APIFY_TOKEN" | jq '.data.status'
-curl -s "https://api.apify.com/v2/datasets/$(curl -s "https://api.apify.com/v2/actor-runs/$RUN?token=$APIFY_TOKEN" | jq -r '.data.defaultDatasetId')/items?token=$APIFY_TOKEN&format=json" > output.json
+RUN=$(curl -s -X POST "https://api.apify.com/v2/acts/vexaloom-labs~aliexpress-multi-region-search-store-and-review/runs" \
+  -H "Authorization: Bearer $APIFY_TOKEN" -H "Content-Type: application/json" \
+  -d @references/example-input.json)
+RUN_ID=$(echo "$RUN" | jq -r '.data.id'); DATASET=$(echo "$RUN" | jq -r '.data.defaultDatasetId')
+curl -s "https://api.apify.com/v2/actor-runs/$RUN_ID?waitForFinish=60" -H "Authorization: Bearer $APIFY_TOKEN" | jq -r '.data.status'
+curl -s "https://api.apify.com/v2/datasets/$DATASET/items?format=json" -H "Authorization: Bearer $APIFY_TOKEN" > output.json
 ```
-
-Or import the n8n workflow: https://github.com/bolvein-firex/scraping-n8n-workflows/blob/main/workflows/aliexpress-multi-region-search-store-and-review-scraper.json
 
 ## Cost and limits
 
-- Billing is per Apify actor run and per dataset item. Check the actor page for current pricing.
-- `run-sync-get-dataset-items` has a request timeout. Use the async pattern for large jobs.
-- Respect rate limits and the target site's terms.
+- Apify bills the Actor's usage on your account; the Actor's Pricing tab shows the current price.
+- Keep the limit in the input small for a first run.
 
 ## Guardrails
 
-- Public data only. Do not use cookies, sessions, or private account data.
-- Do not use the output for spam, harassment, or unlawful discrimination.
-- Verify local law and the target site's terms before running at scale.
-- Demo rows in the Scraper Finder video are illustrative.
-
-## Files
-
-- `scripts/run.mjs` - minimal Node runner using `APIFY_TOKEN`
-- `references/input-schema.json` - full actor input schema
-- `references/example-input.json` - starter input
+- Public data only. Do not pass cookies, sessions or private account data.
+- Do not use the output for spam, harassment or unlawful discrimination.
+- Check the target site's terms and local law before running at scale.

@@ -1,37 +1,58 @@
 ---
 name: google-maps-business-lead-and-email-finder
-description: "Use the Google Maps Business Lead & Email Finder actor to pull local business listings from Google Maps and return name, phone, website, rating, reviews, email. Use when the user needs a public-data lead list, a local business export, or a repeatable outbound dataset without maintaining a scraper."
+description: "Find business leads on Google Maps by category, keyword, or location and collect name, address, phone, website, rating, review count, and coordinates. Optionally adds emails and social links found on each business's own website. Output fields: name, googleBusinessCategories, phoneNumber, email, reviewScore and more, as JSON rows. Use when the user asks for Google Maps leads with emails, Google Maps scraper, local business leads, or a CSV/JSON export of public Google Maps data."
 ---
 
 # Google Maps Business Lead & Email Finder
 
-Pull **local business listings** from **Google Maps** with the public Scraper Finder actor.
+Find business leads on Google Maps by category, keyword, or location and collect name, address, phone, website, rating, review count, and coordinates. Optionally adds emails and social links found on each business's own website.
 
-- Actor: https://apify.com/dataspryva/google-maps-business-lead-and-email-finder
-- Actor ID: `dataspryva~google-maps-business-lead-and-email-finder`
-- n8n workflow: https://github.com/bolvein-firex/scraping-n8n-workflows/blob/main/workflows/google-maps-business-lead-and-email-finder.json
+- Actor: https://apify.com/dataspryva/google-maps-business-lead-and-email-finder (ID `dataspryva~google-maps-business-lead-and-email-finder`)
+- n8n workflow for the same Actor: https://github.com/bolvein-firex/scraping-n8n-workflows/blob/main/docs/google-maps-business-lead-and-email-finder.md
 - Example input: `references/example-input.json`
 - Input schema: `references/input-schema.json`
+- Output fields: `references/output-fields.json`
+
+Short video breakdown:
+- [Watch the Short](https://www.youtube.com/shorts/ofD2844kDPQ)
 
 ## When to use
 
 Use this skill when the user wants:
 
-- a local business or B2B lead list with public contact details
-- a repeatable dataset instead of manual copy-paste
-- a CSV/JSON output for a CRM, sheet, dashboard, or agent
-- a scheduled refresh of public data
+- Google Maps leads with emails
+- Google Maps scraper
+- local business leads
+- a repeatable export of public Google Maps data as CSV or JSON
 
-Do not use it for private, login-protected, or paywalled data.
+Do not use it for private, login-protected or paywalled data.
 
 ## What it returns
 
-- name
-- phone
-- website
-- rating
-- reviews
-- email
+One JSON row per result. Columns from the Actor's dataset schema:
+
+- `name`: Business
+- `googleBusinessCategories`: Categories
+- `street`: Street
+- `city`: City
+- `state`: State / region
+- `zip`: Postal code
+- `country`: Country
+- `countryCode`: Country code
+- `phoneNumber`: Phone
+- `url`: Website
+- `email`: Email
+- `emails`: Emails
+- `reviewScore`: Rating
+- `reviewsNumber`: Reviews
+- `placeId`: Place ID
+- `featureId`: Feature ID
+- `googleMapsUrl`: Google Maps
+- `priceLevel`: Price level
+- `plusCode`: Plus Code
+- `location`: Coordinates
+
+All 39 declared fields: `references/output-fields.json`.
 
 ## Inputs
 
@@ -52,6 +73,8 @@ Do not use it for private, login-protected, or paywalled data.
 | `extractEmails` | boolean | no | true | Visit each business website for public emails, phone numbers and social profiles. Turn off for a faster Maps-only run. |
 | `maxEmailsPerWebsite` | integer | no | 5 | Maximum email addresses to keep for one business website. |
 
+6 more optional fields on the Actor's Input tab.
+
 Example:
 
 ```json
@@ -68,42 +91,35 @@ Example:
 
 ## Run it
 
-Set `APIFY_TOKEN` in your environment, then call the synchronous endpoint for small and medium runs:
+Set `APIFY_TOKEN`, then call the synchronous endpoint for small and medium runs (it waits up to 300 seconds):
 
 ```bash
-curl -s -X POST "https://api.apify.com/v2/acts/dataspryva~google-maps-business-lead-and-email-finder/run-sync-get-dataset-items?token=$APIFY_TOKEN" \
+curl -s -X POST "https://api.apify.com/v2/acts/dataspryva~google-maps-business-lead-and-email-finder/run-sync-get-dataset-items" \
+  -H "Authorization: Bearer $APIFY_TOKEN" \
   -H "Content-Type: application/json" \
-  -d @references/example-input.json
+  -d @references/example-input.json > output.json
 ```
 
-For large runs, start an async run and read the dataset:
+Or with Node 18+: `node scripts/run.mjs [input.json]`.
+
+For large runs, start an async run and read its dataset when it finishes:
 
 ```bash
-RUN=$(curl -s -X POST "https://api.apify.com/v2/acts/dataspryva~google-maps-business-lead-and-email-finder/runs?token=$APIFY_TOKEN" \
-  -H "Content-Type: application/json" \
-  -d @references/example-input.json | jq -r '.data.id')
-
-curl -s "https://api.apify.com/v2/actor-runs/$RUN?token=$APIFY_TOKEN" | jq '.data.status'
-curl -s "https://api.apify.com/v2/datasets/$(curl -s "https://api.apify.com/v2/actor-runs/$RUN?token=$APIFY_TOKEN" | jq -r '.data.defaultDatasetId')/items?token=$APIFY_TOKEN&format=json" > output.json
+RUN=$(curl -s -X POST "https://api.apify.com/v2/acts/dataspryva~google-maps-business-lead-and-email-finder/runs" \
+  -H "Authorization: Bearer $APIFY_TOKEN" -H "Content-Type: application/json" \
+  -d @references/example-input.json)
+RUN_ID=$(echo "$RUN" | jq -r '.data.id'); DATASET=$(echo "$RUN" | jq -r '.data.defaultDatasetId')
+curl -s "https://api.apify.com/v2/actor-runs/$RUN_ID?waitForFinish=60" -H "Authorization: Bearer $APIFY_TOKEN" | jq -r '.data.status'
+curl -s "https://api.apify.com/v2/datasets/$DATASET/items?format=json" -H "Authorization: Bearer $APIFY_TOKEN" > output.json
 ```
-
-Or import the n8n workflow: https://github.com/bolvein-firex/scraping-n8n-workflows/blob/main/workflows/google-maps-business-lead-and-email-finder.json
 
 ## Cost and limits
 
-- Billing is per Apify actor run and per dataset item. Check the actor page for current pricing.
-- `run-sync-get-dataset-items` has a request timeout. Use the async pattern for large jobs.
-- Respect rate limits and the target site's terms.
+- Apify bills the Actor's usage on your account; the Actor's Pricing tab shows the current price.
+- Keep the limit in the input small for a first run.
 
 ## Guardrails
 
-- Public data only. Do not use cookies, sessions, or private account data.
-- Do not use the output for spam, harassment, or unlawful discrimination.
-- Verify local law and the target site's terms before running at scale.
-- Demo rows in the Scraper Finder video are illustrative.
-
-## Files
-
-- `scripts/run.mjs` - minimal Node runner using `APIFY_TOKEN`
-- `references/input-schema.json` - full actor input schema
-- `references/example-input.json` - starter input
+- Public data only. Do not pass cookies, sessions or private account data.
+- Do not use the output for spam, harassment or unlawful discrimination.
+- Check the target site's terms and local law before running at scale.

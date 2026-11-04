@@ -1,37 +1,50 @@
 ---
 name: booking-com-hotel-price-and-amenity-search-scraper
-description: "Use the Booking.com Hotel Price & Amenity Search Scraper actor to pull products from Booking.com and return title, price, rating, reviews, stock, URL. Use when the user needs a price watchlist, a catalog export, or a competitor snapshot without maintaining a scraper."
+description: "Search Booking.com for a destination and dates, and collect each property's price, rating, review count, amenities, and breakfast info for the stay you specify. Output fields: name, price, pricePerNight, rating, reviewCount and more, as JSON rows. Use when the user asks for Booking.com hotel prices for your dates, hotel rate shopping, Booking.com scraper, or a CSV/JSON export of public Booking.com data."
 ---
 
 # Booking.com Hotel Price & Amenity Search Scraper
 
-Pull **products** from **Booking.com** with the public Scraper Finder actor.
+Search Booking.com for a destination and dates, and collect each property's price, rating, review count, amenities, and breakfast info for the stay you specify.
 
-- Actor: https://apify.com/nimbryxo-studio/booking-com-hotel-price-and-amenity-search-scraper
-- Actor ID: `nimbryxo-studio~booking-com-hotel-price-and-amenity-search-scraper`
-- n8n workflow: https://github.com/bolvein-firex/scraping-n8n-workflows/blob/main/workflows/booking-com-hotel-price-and-amenity-search-scraper.json
+- Actor: https://apify.com/nimbryxo-studio/booking-com-hotel-price-and-amenity-search-scraper (ID `nimbryxo-studio~booking-com-hotel-price-and-amenity-search-scraper`)
+- n8n workflow for the same Actor: https://github.com/bolvein-firex/scraping-n8n-workflows/blob/main/docs/booking-com-hotel-price-and-amenity-search-scraper.md
 - Example input: `references/example-input.json`
 - Input schema: `references/input-schema.json`
+- Output fields: `references/output-fields.json`
 
 ## When to use
 
 Use this skill when the user wants:
 
-- a structured export of products from Booking.com
-- a repeatable dataset instead of manual copy-paste
-- a CSV/JSON output for a CRM, sheet, dashboard, or agent
-- a scheduled refresh of public data
+- Booking.com hotel prices for your dates
+- hotel rate shopping
+- Booking.com scraper
+- a repeatable export of public Booking.com data as CSV or JSON
 
-Do not use it for private, login-protected, or paywalled data.
+Do not use it for private, login-protected or paywalled data.
 
 ## What it returns
 
-- title
-- price
-- rating
-- reviews
-- stock
-- URL
+One JSON row per result. Columns from the Actor's dataset schema:
+
+- `name`: Hotel
+- `price`: Stay total
+- `pricePerNight`: Per night
+- `currency`: Currency
+- `rating`: Rating
+- `reviewCount`: Reviews
+- `reviewWord`: Score word
+- `stars`: Stars
+- `propertyType`: Type
+- `city`: City
+- `country`: Country
+- `freeCancellation`: Free cancellation
+- `breakfastIncluded`: Breakfast
+- `topAmenities`: Top amenities
+- `url`: URL
+
+All 45 declared fields: `references/output-fields.json`.
 
 ## Inputs
 
@@ -39,7 +52,7 @@ Do not use it for private, login-protected, or paywalled data.
 |---|---|---|---|---|
 | `mode` | string | no | search | Search a destination, or load specific Booking.com hotel URLs. |
 | `destination` | string | no |  | City, region or landmark to search, e.g. Paris, New York or Tokyo. Required in search mode. |
-| `startUrls` | array | no |  | Booking.com hotel page URLs, used in details mode. Copy links from a search result or your browser. |
+| `startUrls` | array | no | [] | Booking.com hotel page URLs, used in details mode. Copy links from a search result or your browser. |
 | `checkIn` | string | no |  | Check-in date as YYYY-MM-DD. Leave empty to use tomorrow. |
 | `checkOut` | string | no |  | Check-out date as YYYY-MM-DD. Leave empty to use a 3-night stay. |
 | `adults` | integer | no | 2 | Number of adult guests. |
@@ -51,6 +64,8 @@ Do not use it for private, login-protected, or paywalled data.
 | `breakfast` | boolean | no | false | Return properties with a breakfast-included rate. |
 | `pool` | boolean | no | false | Return properties that have a swimming pool. |
 | `minPrice` | number | no |  | Optional lower bound for the nightly price in the chosen currency. |
+
+7 more optional fields on the Actor's Input tab.
 
 Example:
 
@@ -76,42 +91,35 @@ Example:
 
 ## Run it
 
-Set `APIFY_TOKEN` in your environment, then call the synchronous endpoint for small and medium runs:
+Set `APIFY_TOKEN`, then call the synchronous endpoint for small and medium runs (it waits up to 300 seconds):
 
 ```bash
-curl -s -X POST "https://api.apify.com/v2/acts/nimbryxo-studio~booking-com-hotel-price-and-amenity-search-scraper/run-sync-get-dataset-items?token=$APIFY_TOKEN" \
+curl -s -X POST "https://api.apify.com/v2/acts/nimbryxo-studio~booking-com-hotel-price-and-amenity-search-scraper/run-sync-get-dataset-items" \
+  -H "Authorization: Bearer $APIFY_TOKEN" \
   -H "Content-Type: application/json" \
-  -d @references/example-input.json
+  -d @references/example-input.json > output.json
 ```
 
-For large runs, start an async run and read the dataset:
+Or with Node 18+: `node scripts/run.mjs [input.json]`.
+
+For large runs, start an async run and read its dataset when it finishes:
 
 ```bash
-RUN=$(curl -s -X POST "https://api.apify.com/v2/acts/nimbryxo-studio~booking-com-hotel-price-and-amenity-search-scraper/runs?token=$APIFY_TOKEN" \
-  -H "Content-Type: application/json" \
-  -d @references/example-input.json | jq -r '.data.id')
-
-curl -s "https://api.apify.com/v2/actor-runs/$RUN?token=$APIFY_TOKEN" | jq '.data.status'
-curl -s "https://api.apify.com/v2/datasets/$(curl -s "https://api.apify.com/v2/actor-runs/$RUN?token=$APIFY_TOKEN" | jq -r '.data.defaultDatasetId')/items?token=$APIFY_TOKEN&format=json" > output.json
+RUN=$(curl -s -X POST "https://api.apify.com/v2/acts/nimbryxo-studio~booking-com-hotel-price-and-amenity-search-scraper/runs" \
+  -H "Authorization: Bearer $APIFY_TOKEN" -H "Content-Type: application/json" \
+  -d @references/example-input.json)
+RUN_ID=$(echo "$RUN" | jq -r '.data.id'); DATASET=$(echo "$RUN" | jq -r '.data.defaultDatasetId')
+curl -s "https://api.apify.com/v2/actor-runs/$RUN_ID?waitForFinish=60" -H "Authorization: Bearer $APIFY_TOKEN" | jq -r '.data.status'
+curl -s "https://api.apify.com/v2/datasets/$DATASET/items?format=json" -H "Authorization: Bearer $APIFY_TOKEN" > output.json
 ```
-
-Or import the n8n workflow: https://github.com/bolvein-firex/scraping-n8n-workflows/blob/main/workflows/booking-com-hotel-price-and-amenity-search-scraper.json
 
 ## Cost and limits
 
-- Billing is per Apify actor run and per dataset item. Check the actor page for current pricing.
-- `run-sync-get-dataset-items` has a request timeout. Use the async pattern for large jobs.
-- Respect rate limits and the target site's terms.
+- Apify bills the Actor's usage on your account; the Actor's Pricing tab shows the current price.
+- Keep the limit in the input small for a first run.
 
 ## Guardrails
 
-- Public data only. Do not use cookies, sessions, or private account data.
-- Do not use the output for spam, harassment, or unlawful discrimination.
-- Verify local law and the target site's terms before running at scale.
-- Demo rows in the Scraper Finder video are illustrative.
-
-## Files
-
-- `scripts/run.mjs` - minimal Node runner using `APIFY_TOKEN`
-- `references/input-schema.json` - full actor input schema
-- `references/example-input.json` - starter input
+- Public data only. Do not pass cookies, sessions or private account data.
+- Do not use the output for spam, harassment or unlawful discrimination.
+- Check the target site's terms and local law before running at scale.

@@ -1,49 +1,59 @@
 ---
 name: shopify-store-catalog-and-pricing-extractor
-description: "Use the Shopify Store Catalog & Pricing Extractor actor to pull stores from Shopify and return title, price, compare-at, variant, stock, URL. Use when the user needs a price watchlist, a catalog export, or a competitor snapshot without maintaining a scraper."
+description: "Extract a Shopify store's product catalog with titles, prices, compare-at prices, variants, SKUs, images and stock availability from any custom or myshopify.com domain. Output fields: title, price, compareAtPrice, available, vendor and more, as JSON rows. Use when the user asks for Scrape a Shopify store's products and prices, Shopify product scraper, competitor catalog export, or a CSV/JSON export of public Shopify data."
 ---
 
 # Shopify Store Catalog & Pricing Extractor
 
-Pull **stores** from **Shopify** with the public Scraper Finder actor.
+Extract a Shopify store's product catalog with titles, prices, compare-at prices, variants, SKUs, images and stock availability from any custom or myshopify.com domain.
 
-- Actor: https://apify.com/nimbryxo-studio/shopify-store-catalog-and-pricing-extractor
-- Actor ID: `nimbryxo-studio~shopify-store-catalog-and-pricing-extractor`
-- n8n workflow: https://github.com/bolvein-firex/scraping-n8n-workflows/blob/main/workflows/shopify-store-catalog-and-pricing-extractor.json
+- Actor: https://apify.com/nimbryxo-studio/shopify-store-catalog-and-pricing-extractor (ID `nimbryxo-studio~shopify-store-catalog-and-pricing-extractor`)
+- n8n workflow for the same Actor: https://github.com/bolvein-firex/scraping-n8n-workflows/blob/main/docs/shopify-store-catalog-and-pricing-extractor.md
 - Example input: `references/example-input.json`
 - Input schema: `references/input-schema.json`
+- Output fields: `references/output-fields.json`
+
+Short video breakdown:
+- [See competitor prices before Monday's meeting](https://www.youtube.com/shorts/398NV7q-K6w)
 
 ## When to use
 
 Use this skill when the user wants:
 
-- a structured export of stores from Shopify
-- a repeatable dataset instead of manual copy-paste
-- a CSV/JSON output for a CRM, sheet, dashboard, or agent
-- a scheduled refresh of public data
+- Scrape a Shopify store's products and prices
+- Shopify product scraper
+- competitor catalog export
+- a repeatable export of public Shopify data as CSV or JSON
 
-Do not use it for private, login-protected, or paywalled data.
+Do not use it for private, login-protected or paywalled data.
 
 ## What it returns
 
-- title
-- price
-- compare-at
-- variant
-- stock
-- URL
+One JSON row per result. Columns from the Actor's dataset schema:
+
+- `title`: Title
+- `price`: Price
+- `currency`: Currency
+- `compareAtPrice`: Compare at
+- `available`: Available
+- `vendor`: Vendor
+- `productType`: Type
+- `storeUrl`: Store
+- `url`: Product URL
+
+All 42 declared fields: `references/output-fields.json`.
 
 ## Inputs
 
 | Field | Type | Required | Default | Notes |
 |---|---|---|---|---|
-| `mode` | string | yes | catalog | What to scrape. `catalog` walks the public product feed, `collection` walks specific collections, `product` fetches exact product handles, `search` uses the storefront search sugge |
-| `storeUrls` | array | no |  | Store domains or URLs, e.g. `deathwishcoffee.com` or `https://www.allbirds.com`. Accepts custom domains and `*.myshopify.com`. A product or collection URL is reduced to its store f |
-| `startUrls` | array | no |  | Store, collection or product URLs. In `auto` mode each URL selects its own job: `/products/<handle>` fetches one product, `/collections/<handle>` fetches a collection, any other st |
-| `collectionHandles` | array | no |  | Collection handles or collection URLs, e.g. `new-arrivals`, `sale`, or `https://store.com/collections/sale`. Handles are applied to every store in `storeUrls`; a full collection UR |
-| `productHandles` | array | no |  | Product handles or product URLs, e.g. `dark-roast-coffee` or `https://store.com/products/dark-roast-coffee`. Handles are applied to every store in `storeUrls`; a full product URL i |
+| `mode` | string | yes | catalog | What to scrape. `catalog` walks the public product feed, `collection` walks specific collections, `product` fetches exact product handles, `search` uses the storefront search… |
+| `storeUrls` | array | no |  | Store domains or URLs, e.g. `deathwishcoffee.com` or `https://www.allbirds.com`. Accepts custom domains and `*.myshopify.com`. |
+| `startUrls` | array | no | [] | Store, collection or product URLs. In `auto` mode each URL selects its own job: `/products/` fetches one product, `/collections/` fetches a collection, any other store URL fetches… |
+| `collectionHandles` | array | no | [] | Collection handles or collection URLs, e.g. `new-arrivals`, `sale`, or `https://store.com/collections/sale`. |
+| `productHandles` | array | no | [] | Product handles or product URLs, e.g. `dark-roast-coffee` or `https://store.com/products/dark-roast-coffee`. |
 | `searchQuery` | string | no |  | In-store search term. Shopify's public suggest endpoint returns at most 10 products per store and has no pagination. |
-| `currency` | string | no | store | ISO 4217 code to pin prices to, e.g. `USD`, `EUR`, `GBP`. Use `store` to use the store's base currency from `/meta.json`. Pinning is important because Shopify localizes prices by I |
+| `currency` | string | no | store | ISO 4217 code to pin prices to, e.g. `USD`, `EUR`, `GBP`. Use `store` to use the store's base currency from `/meta.json`. |
 | `country` | string | no |  | Two-letter ISO country code passed as `?country=` to the storefront, e.g. `US`, `GB`, `DE`. |
 | `vendor` | string | no |  | Keep products whose vendor contains this text (case-insensitive). |
 | `productType` | string | no |  | Keep products whose product type contains this text (case-insensitive). |
@@ -51,6 +61,8 @@ Do not use it for private, login-protected, or paywalled data.
 | `minPrice` | number | no |  | Drop products whose lowest variant price is below this value. |
 | `maxPrice` | number | no |  | Drop products whose lowest variant price is above this value. |
 | `available` | string | no | any | Keep all products, only products with at least one purchasable variant, or only sold-out products. |
+
+5 more optional fields on the Actor's Input tab.
 
 Example:
 
@@ -64,42 +76,35 @@ Example:
 
 ## Run it
 
-Set `APIFY_TOKEN` in your environment, then call the synchronous endpoint for small and medium runs:
+Set `APIFY_TOKEN`, then call the synchronous endpoint for small and medium runs (it waits up to 300 seconds):
 
 ```bash
-curl -s -X POST "https://api.apify.com/v2/acts/nimbryxo-studio~shopify-store-catalog-and-pricing-extractor/run-sync-get-dataset-items?token=$APIFY_TOKEN" \
+curl -s -X POST "https://api.apify.com/v2/acts/nimbryxo-studio~shopify-store-catalog-and-pricing-extractor/run-sync-get-dataset-items" \
+  -H "Authorization: Bearer $APIFY_TOKEN" \
   -H "Content-Type: application/json" \
-  -d @references/example-input.json
+  -d @references/example-input.json > output.json
 ```
 
-For large runs, start an async run and read the dataset:
+Or with Node 18+: `node scripts/run.mjs [input.json]`.
+
+For large runs, start an async run and read its dataset when it finishes:
 
 ```bash
-RUN=$(curl -s -X POST "https://api.apify.com/v2/acts/nimbryxo-studio~shopify-store-catalog-and-pricing-extractor/runs?token=$APIFY_TOKEN" \
-  -H "Content-Type: application/json" \
-  -d @references/example-input.json | jq -r '.data.id')
-
-curl -s "https://api.apify.com/v2/actor-runs/$RUN?token=$APIFY_TOKEN" | jq '.data.status'
-curl -s "https://api.apify.com/v2/datasets/$(curl -s "https://api.apify.com/v2/actor-runs/$RUN?token=$APIFY_TOKEN" | jq -r '.data.defaultDatasetId')/items?token=$APIFY_TOKEN&format=json" > output.json
+RUN=$(curl -s -X POST "https://api.apify.com/v2/acts/nimbryxo-studio~shopify-store-catalog-and-pricing-extractor/runs" \
+  -H "Authorization: Bearer $APIFY_TOKEN" -H "Content-Type: application/json" \
+  -d @references/example-input.json)
+RUN_ID=$(echo "$RUN" | jq -r '.data.id'); DATASET=$(echo "$RUN" | jq -r '.data.defaultDatasetId')
+curl -s "https://api.apify.com/v2/actor-runs/$RUN_ID?waitForFinish=60" -H "Authorization: Bearer $APIFY_TOKEN" | jq -r '.data.status'
+curl -s "https://api.apify.com/v2/datasets/$DATASET/items?format=json" -H "Authorization: Bearer $APIFY_TOKEN" > output.json
 ```
-
-Or import the n8n workflow: https://github.com/bolvein-firex/scraping-n8n-workflows/blob/main/workflows/shopify-store-catalog-and-pricing-extractor.json
 
 ## Cost and limits
 
-- Billing is per Apify actor run and per dataset item. Check the actor page for current pricing.
-- `run-sync-get-dataset-items` has a request timeout. Use the async pattern for large jobs.
-- Respect rate limits and the target site's terms.
+- Apify bills the Actor's usage on your account; the Actor's Pricing tab shows the current price.
+- Keep the limit in the input small for a first run.
 
 ## Guardrails
 
-- Public data only. Do not use cookies, sessions, or private account data.
-- Do not use the output for spam, harassment, or unlawful discrimination.
-- Verify local law and the target site's terms before running at scale.
-- Demo rows in the Scraper Finder video are illustrative.
-
-## Files
-
-- `scripts/run.mjs` - minimal Node runner using `APIFY_TOKEN`
-- `references/input-schema.json` - full actor input schema
-- `references/example-input.json` - starter input
+- Public data only. Do not pass cookies, sessions or private account data.
+- Do not use the output for spam, harassment or unlawful discrimination.
+- Check the target site's terms and local law before running at scale.

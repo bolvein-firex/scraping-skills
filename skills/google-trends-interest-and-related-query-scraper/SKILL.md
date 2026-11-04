@@ -1,46 +1,59 @@
 ---
 name: google-trends-interest-and-related-query-scraper
-description: "Use the Google Trends Interest & Related Query Scraper actor to pull search trends from Google Trends and return Term, Interest, Breakout, Related Query, Geo, date. Use when the user needs a trend brief, a creator list, or a content swipe file without maintaining a scraper."
+description: "Get interest-over-time, interest-by-region, and related topics/queries for any keyword, location, time range and Google surface, with side-by-side comparison for up to five keywords. Output fields: searchTerms, title, geoName, averageInterest, growthPercent and more, as JSON rows. Use when the user asks for Export Google Trends data, Google Trends scraper, related queries, or a CSV/JSON export of public Google Trends data."
 ---
 
 # Google Trends Interest & Related Query Scraper
 
-Pull **search trends** from **Google Trends** with the public Scraper Finder actor.
+Get interest-over-time, interest-by-region, and related topics/queries for any keyword, location, time range and Google surface, with side-by-side comparison for up to five keywords.
 
-- Actor: https://apify.com/vexaloom-labs/google-trends-interest-and-related-query-scraper
-- Actor ID: `vexaloom-labs~google-trends-interest-and-related-query-scraper`
-- n8n workflow: https://github.com/bolvein-firex/scraping-n8n-workflows/blob/main/workflows/google-trends-interest-and-related-query-scraper.json
+- Actor: https://apify.com/vexaloom-labs/google-trends-interest-and-related-query-scraper (ID `vexaloom-labs~google-trends-interest-and-related-query-scraper`)
+- n8n workflow for the same Actor: https://github.com/bolvein-firex/scraping-n8n-workflows/blob/main/docs/google-trends-interest-and-related-query-scraper.md
 - Example input: `references/example-input.json`
 - Input schema: `references/input-schema.json`
+- Output fields: `references/output-fields.json`
+
+Short video breakdown:
+- [See the demand curve before the keyword tool](https://www.youtube.com/shorts/gDZBpA25UB8)
 
 ## When to use
 
 Use this skill when the user wants:
 
-- a structured export of search trends from Google Trends
-- a repeatable dataset instead of manual copy-paste
-- a CSV/JSON output for a CRM, sheet, dashboard, or agent
-- a scheduled refresh of public data
+- Export Google Trends data
+- Google Trends scraper
+- related queries
+- a repeatable export of public Google Trends data as CSV or JSON
 
-Do not use it for private, login-protected, or paywalled data.
+Do not use it for private, login-protected or paywalled data.
 
 ## What it returns
 
-- Term
-- Interest
-- Breakout
-- Related Query
-- Geo
-- date
+One JSON row per result. Columns from the Actor's dataset schema:
+
+- `searchTerms`: Terms
+- `title`: Trending term
+- `geoName`: Location
+- `timeRangeLabel`: Time label
+- `hoursLabel`: Window
+- `categoryName`: Category
+- `searchTypeLabel`: Type label
+- `averageInterest`: Avg
+- `volumeText`: Volume
+- `growthPercent`: Growth %
+- `exploreUrl`: URL
+- `trendingUrl`: Trends URL
+
+All 36 declared fields: `references/output-fields.json`.
 
 ## Inputs
 
 | Field | Type | Required | Default | Notes |
 |---|---|---|---|---|
 | `mode` | string | no | interest | What to scrape. 'Interest over time & related queries' is the Google Trends Explore view (keywords required). 'Trending now' lists what is spiking in a country right now. |
-| `searchTerms` | array | no |  | One or more search terms to analyze (mode=interest). Each term becomes its own dataset row, or enable Comparison mode to compare up to 5 terms side by side. Example: `tesla` or `te |
+| `searchTerms` | array | no |  | One or more search terms to analyze (mode=interest). Each term becomes its own dataset row, or enable Comparison mode to compare up to 5 terms side by side. |
 | `compareMode` | boolean | no | false | Compare all search terms on one shared 0-100 scale in a single row (Google Trends comparison view, maximum 5 terms). Off means each term is scraped independently. |
-| `startUrls` | array | no |  | Paste Google Trends links to scrape them directly: explore links (trends.google.com/trends/explore?q=..., including www.google.com/trends/... redirect links) and embedded-chart lin |
+| `startUrls` | array | no |  | Paste Google Trends links to scrape them directly: explore links (trends.google.com/trends/explore?q=..., including www.google.com/trends/... |
 | `geo` | string | no |  | Country, state/region or metro area to analyze. Leave empty for worldwide. Trending Now uses the country part of this location. |
 | `timeRange` | string | no | today 12-m | Time window for the interest data (mode=interest). 'now' ranges return minute-level points; 'today' ranges return day/week points. Choose 'Custom range' to enter exact dates below. |
 | `customDateRange` | string | no |  | Only used when 'Time range' = 'Custom range': 'YYYY-MM-DD YYYY-MM-DD' (e.g. '2024-01-01 2024-12-31') or 'YYYY-MM-DDTHH YYYY-MM-DDTHH' for hourly granularity. |
@@ -68,42 +81,35 @@ Example:
 
 ## Run it
 
-Set `APIFY_TOKEN` in your environment, then call the synchronous endpoint for small and medium runs:
+Set `APIFY_TOKEN`, then call the synchronous endpoint for small and medium runs (it waits up to 300 seconds):
 
 ```bash
-curl -s -X POST "https://api.apify.com/v2/acts/vexaloom-labs~google-trends-interest-and-related-query-scraper/run-sync-get-dataset-items?token=$APIFY_TOKEN" \
+curl -s -X POST "https://api.apify.com/v2/acts/vexaloom-labs~google-trends-interest-and-related-query-scraper/run-sync-get-dataset-items" \
+  -H "Authorization: Bearer $APIFY_TOKEN" \
   -H "Content-Type: application/json" \
-  -d @references/example-input.json
+  -d @references/example-input.json > output.json
 ```
 
-For large runs, start an async run and read the dataset:
+Or with Node 18+: `node scripts/run.mjs [input.json]`.
+
+For large runs, start an async run and read its dataset when it finishes:
 
 ```bash
-RUN=$(curl -s -X POST "https://api.apify.com/v2/acts/vexaloom-labs~google-trends-interest-and-related-query-scraper/runs?token=$APIFY_TOKEN" \
-  -H "Content-Type: application/json" \
-  -d @references/example-input.json | jq -r '.data.id')
-
-curl -s "https://api.apify.com/v2/actor-runs/$RUN?token=$APIFY_TOKEN" | jq '.data.status'
-curl -s "https://api.apify.com/v2/datasets/$(curl -s "https://api.apify.com/v2/actor-runs/$RUN?token=$APIFY_TOKEN" | jq -r '.data.defaultDatasetId')/items?token=$APIFY_TOKEN&format=json" > output.json
+RUN=$(curl -s -X POST "https://api.apify.com/v2/acts/vexaloom-labs~google-trends-interest-and-related-query-scraper/runs" \
+  -H "Authorization: Bearer $APIFY_TOKEN" -H "Content-Type: application/json" \
+  -d @references/example-input.json)
+RUN_ID=$(echo "$RUN" | jq -r '.data.id'); DATASET=$(echo "$RUN" | jq -r '.data.defaultDatasetId')
+curl -s "https://api.apify.com/v2/actor-runs/$RUN_ID?waitForFinish=60" -H "Authorization: Bearer $APIFY_TOKEN" | jq -r '.data.status'
+curl -s "https://api.apify.com/v2/datasets/$DATASET/items?format=json" -H "Authorization: Bearer $APIFY_TOKEN" > output.json
 ```
-
-Or import the n8n workflow: https://github.com/bolvein-firex/scraping-n8n-workflows/blob/main/workflows/google-trends-interest-and-related-query-scraper.json
 
 ## Cost and limits
 
-- Billing is per Apify actor run and per dataset item. Check the actor page for current pricing.
-- `run-sync-get-dataset-items` has a request timeout. Use the async pattern for large jobs.
-- Respect rate limits and the target site's terms.
+- Apify bills the Actor's usage on your account; the Actor's Pricing tab shows the current price.
+- Keep the limit in the input small for a first run.
 
 ## Guardrails
 
-- Public data only. Do not use cookies, sessions, or private account data.
-- Do not use the output for spam, harassment, or unlawful discrimination.
-- Verify local law and the target site's terms before running at scale.
-- Demo rows in the Scraper Finder video are illustrative.
-
-## Files
-
-- `scripts/run.mjs` - minimal Node runner using `APIFY_TOKEN`
-- `references/input-schema.json` - full actor input schema
-- `references/example-input.json` - starter input
+- Public data only. Do not pass cookies, sessions or private account data.
+- Do not use the output for spam, harassment or unlawful discrimination.
+- Check the target site's terms and local law before running at scale.

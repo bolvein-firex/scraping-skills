@@ -1,49 +1,58 @@
 ---
 name: amazon-multi-domain-product-price-and-detail-scraper
-description: "Use the Amazon Multi-Domain Product Price & Detail Scraper actor to pull products from Amazon and return title, price, coupon, rating, reviews, stock. Use when the user needs a price watchlist, a catalog export, or a competitor snapshot without maintaining a scraper."
+description: "Pull pricing, ratings, seller, variant and technical detail for Amazon products by URL or ASIN, across 21 country domains, with optional delivery postal-code targeting. Output fields: title, asin, price, stars, reviewsCount and more, as JSON rows. Use when the user asks for Amazon price tracking, Amazon product scraper, ASIN price lookup, or a CSV/JSON export of public Amazon data."
 ---
 
 # Amazon Multi-Domain Product Price & Detail Scraper
 
-Pull **products** from **Amazon** with the public Scraper Finder actor.
+Pull pricing, ratings, seller, variant and technical detail for Amazon products by URL or ASIN, across 21 country domains, with optional delivery postal-code targeting.
 
-- Actor: https://apify.com/nimbryxo-studio/amazon-multi-domain-product-price-and-detail
-- Actor ID: `nimbryxo-studio~amazon-multi-domain-product-price-and-detail`
-- n8n workflow: https://github.com/bolvein-firex/scraping-n8n-workflows/blob/main/workflows/amazon-multi-domain-product-price-and-detail-scraper.json
+- Actor: https://apify.com/nimbryxo-studio/amazon-multi-domain-product-price-and-detail (ID `nimbryxo-studio~amazon-multi-domain-product-price-and-detail`)
+- n8n workflow for the same Actor: https://github.com/bolvein-firex/scraping-n8n-workflows/blob/main/docs/amazon-multi-domain-product-price-and-detail-scraper.md
 - Example input: `references/example-input.json`
 - Input schema: `references/input-schema.json`
+- Output fields: `references/output-fields.json`
+
+Short video breakdown:
+- [The buy box moved while you slept](https://www.youtube.com/shorts/SqsDoB0jyD8)
 
 ## When to use
 
 Use this skill when the user wants:
 
-- a structured export of products from Amazon
-- a repeatable dataset instead of manual copy-paste
-- a CSV/JSON output for a CRM, sheet, dashboard, or agent
-- a scheduled refresh of public data
+- Amazon price tracking
+- Amazon product scraper
+- ASIN price lookup
+- a repeatable export of public Amazon data as CSV or JSON
 
-Do not use it for private, login-protected, or paywalled data.
+Do not use it for private, login-protected or paywalled data.
 
 ## What it returns
 
-- title
-- price
-- coupon
-- rating
-- reviews
-- stock
+One JSON row per result. Columns from the Actor's dataset schema:
+
+- `title`: Product Title
+- `asin`: ASIN
+- `price`: Price
+- `stars`: Rating
+- `reviewsCount`: Reviews
+- `inStock`: In Stock
+- `brand`: Brand
+- `url`: URL
+
+All 9 declared fields: `references/output-fields.json`.
 
 ## Inputs
 
 | Field | Type | Required | Default | Notes |
 |---|---|---|---|---|
-| `productUrls` | array | no |  | Amazon product URLs to scrape. Any mix of the 21 supported country domains is allowed, e.g. https://www.amazon.com/dp/B0B8PD8TTP. |
-| `asins` | array | no |  | Bare 10-character Amazon ASINs. Builds /dp/{ASIN} URLs on the selected marketplace, or on every domain listed in `domains` for cross-marketplace runs. |
-| `searchTerms` | array | no |  | Keyword queries to run on Amazon search pages. Price/rating/deal/condition/sort filters are applied as URL parameters. |
-| `searchUrls` | array | no |  | Full Amazon search URLs to pass through, including your own `i=`, `rh=`, `low-price`, and `s=` parameters. Pagination is added automatically. |
-| `bestsellerUrls` | array | no |  | Amazon bestseller /zgbs/ or /gp/bestsellers/ list URLs. Returns the ranked product cards, optionally enriched with product-detail fields. |
+| `productUrls` | array | no | [] | Amazon product URLs to scrape. Any mix of the 21 supported country domains is allowed, e.g. `https://www.amazon.com/dp/B0B8PD8TTP.` |
+| `asins` | array | no | [] | Bare 10-character Amazon ASINs. Builds /dp/{ASIN} URLs on the selected marketplace, or on every domain listed in `domains` for cross-marketplace runs. |
+| `searchTerms` | array | no | [] | Keyword queries to run on Amazon search pages. Price/rating/deal/condition/sort filters are applied as URL parameters. |
+| `searchUrls` | array | no | [] | Full Amazon search URLs to pass through, including your own `i=`, `rh=`, `low-price`, and `s=` parameters. Pagination is added automatically. |
+| `bestsellerUrls` | array | no | [] | Amazon bestseller /zgbs/ or /gp/bestsellers/ list URLs. Returns the ranked product cards, optionally enriched with product-detail fields. |
 | `marketplace` | string | no | auto | Marketplace used for bare ASINs and keyword search terms. `auto` uses the first product URL's domain, or amazon.com. |
-| `domains` | array | no |  | Optional list of marketplaces (e.g. amazon.com, amazon.de) to run bare ASINs and search terms across. Leave empty to use `marketplace` only. |
+| `domains` | array | no | [] | Optional list of marketplaces (e.g. amazon.com, amazon.de) to run bare ASINs and search terms across. Leave empty to use `marketplace` only. |
 | `language` | string | no | auto | Page language. `auto` uses the marketplace's own default. Explicit values set `?language=` and the matching Accept-Language header. |
 | `currency` | string | no | auto | ISO currency for the displayed price. `auto` uses the marketplace currency. Note: Amazon converts display currency; it is not guaranteed local retail pricing. |
 | `deliveryCountry` | string | no | auto | Optional country hint. When `postalCode` is empty, a representative local ZIP for that country is used. A country alone is not sent to Amazon. |
@@ -51,6 +60,8 @@ Do not use it for private, login-protected, or paywalled data.
 | `minPrice` | number | no |  | Minimum price for discovery (search) results. Leave empty for no lower bound. |
 | `maxPrice` | number | no |  | Maximum price for discovery (search) results. Leave empty for no upper bound. |
 | `minRating` | string | no | any | Minimum star rating for discovery results. `4` is the live-validated 4+ stars filter; lower values are best effort. |
+
+17 more optional fields on the Actor's Input tab.
 
 Example:
 
@@ -68,42 +79,35 @@ Example:
 
 ## Run it
 
-Set `APIFY_TOKEN` in your environment, then call the synchronous endpoint for small and medium runs:
+Set `APIFY_TOKEN`, then call the synchronous endpoint for small and medium runs (it waits up to 300 seconds):
 
 ```bash
-curl -s -X POST "https://api.apify.com/v2/acts/nimbryxo-studio~amazon-multi-domain-product-price-and-detail/run-sync-get-dataset-items?token=$APIFY_TOKEN" \
+curl -s -X POST "https://api.apify.com/v2/acts/nimbryxo-studio~amazon-multi-domain-product-price-and-detail/run-sync-get-dataset-items" \
+  -H "Authorization: Bearer $APIFY_TOKEN" \
   -H "Content-Type: application/json" \
-  -d @references/example-input.json
+  -d @references/example-input.json > output.json
 ```
 
-For large runs, start an async run and read the dataset:
+Or with Node 18+: `node scripts/run.mjs [input.json]`.
+
+For large runs, start an async run and read its dataset when it finishes:
 
 ```bash
-RUN=$(curl -s -X POST "https://api.apify.com/v2/acts/nimbryxo-studio~amazon-multi-domain-product-price-and-detail/runs?token=$APIFY_TOKEN" \
-  -H "Content-Type: application/json" \
-  -d @references/example-input.json | jq -r '.data.id')
-
-curl -s "https://api.apify.com/v2/actor-runs/$RUN?token=$APIFY_TOKEN" | jq '.data.status'
-curl -s "https://api.apify.com/v2/datasets/$(curl -s "https://api.apify.com/v2/actor-runs/$RUN?token=$APIFY_TOKEN" | jq -r '.data.defaultDatasetId')/items?token=$APIFY_TOKEN&format=json" > output.json
+RUN=$(curl -s -X POST "https://api.apify.com/v2/acts/nimbryxo-studio~amazon-multi-domain-product-price-and-detail/runs" \
+  -H "Authorization: Bearer $APIFY_TOKEN" -H "Content-Type: application/json" \
+  -d @references/example-input.json)
+RUN_ID=$(echo "$RUN" | jq -r '.data.id'); DATASET=$(echo "$RUN" | jq -r '.data.defaultDatasetId')
+curl -s "https://api.apify.com/v2/actor-runs/$RUN_ID?waitForFinish=60" -H "Authorization: Bearer $APIFY_TOKEN" | jq -r '.data.status'
+curl -s "https://api.apify.com/v2/datasets/$DATASET/items?format=json" -H "Authorization: Bearer $APIFY_TOKEN" > output.json
 ```
-
-Or import the n8n workflow: https://github.com/bolvein-firex/scraping-n8n-workflows/blob/main/workflows/amazon-multi-domain-product-price-and-detail-scraper.json
 
 ## Cost and limits
 
-- Billing is per Apify actor run and per dataset item. Check the actor page for current pricing.
-- `run-sync-get-dataset-items` has a request timeout. Use the async pattern for large jobs.
-- Respect rate limits and the target site's terms.
+- Apify bills the Actor's usage on your account; the Actor's Pricing tab shows the current price.
+- Keep the limit in the input small for a first run.
 
 ## Guardrails
 
-- Public data only. Do not use cookies, sessions, or private account data.
-- Do not use the output for spam, harassment, or unlawful discrimination.
-- Verify local law and the target site's terms before running at scale.
-- Demo rows in the Scraper Finder video are illustrative.
-
-## Files
-
-- `scripts/run.mjs` - minimal Node runner using `APIFY_TOKEN`
-- `references/input-schema.json` - full actor input schema
-- `references/example-input.json` - starter input
+- Public data only. Do not pass cookies, sessions or private account data.
+- Do not use the output for spam, harassment or unlawful discrimination.
+- Check the target site's terms and local law before running at scale.

@@ -1,56 +1,79 @@
 ---
 name: amazon-customer-review-and-rating-summary-scraper
-description: "Use the Amazon Customer Review & Rating Summary Scraper actor to pull review data from Amazon and return author, rating, verified, date, text, URL. Use when the user needs a price watchlist, a catalog export, or a competitor snapshot without maintaining a scraper."
+description: "Get Amazon customer reviews and a product-level rating summary by product URL, keyword, or category, with star-rating and sort filters, across 23 Amazon domains. Output fields: productAsin, ratingScore, reviewTitle, reviewDescription, isVerified and more, as JSON rows. Use when the user asks for Amazon review scraper, Amazon rating summary, product review export, or a CSV/JSON export of public Amazon data."
 ---
 
 # Amazon Customer Review & Rating Summary Scraper
 
-Pull **review data** from **Amazon** with the public Scraper Finder actor.
+Get Amazon customer reviews and a product-level rating summary by product URL, keyword, or category, with star-rating and sort filters, across 23 Amazon domains.
 
-- Actor: https://apify.com/vexaloom-labs/amazon-customer-review-and-rating-summary-scraper
-- Actor ID: `vexaloom-labs~amazon-customer-review-and-rating-summary-scraper`
-- n8n workflow: https://github.com/bolvein-firex/scraping-n8n-workflows/blob/main/workflows/amazon-customer-review-and-rating-summary-scraper.json
+- Actor: https://apify.com/vexaloom-labs/amazon-customer-review-and-rating-summary-scraper (ID `vexaloom-labs~amazon-customer-review-and-rating-summary-scraper`)
+- n8n workflow for the same Actor: https://github.com/bolvein-firex/scraping-n8n-workflows/blob/main/docs/amazon-customer-review-and-rating-summary-scraper.md
 - Example input: `references/example-input.json`
 - Input schema: `references/input-schema.json`
+- Output fields: `references/output-fields.json`
+
+Short video breakdown:
+- [Stop copying Amazon reviews; sort them in a sheet](https://www.youtube.com/shorts/WhVOks5q4MU)
 
 ## When to use
 
 Use this skill when the user wants:
 
-- a structured export of review data from Amazon
-- a repeatable dataset instead of manual copy-paste
-- a CSV/JSON output for a CRM, sheet, dashboard, or agent
-- a scheduled refresh of public data
+- Amazon review scraper
+- Amazon rating summary
+- product review export
+- a repeatable export of public Amazon data as CSV or JSON
 
-Do not use it for private, login-protected, or paywalled data.
+Do not use it for private, login-protected or paywalled data.
 
 ## What it returns
 
-- author
-- rating
-- verified
-- date
-- text
-- URL
+One JSON row per result. Columns from the Actor's dataset schema:
+
+- `productAsin`: ASIN
+- `ratingScore`: Rating
+- `reviewTitle`: Title
+- `reviewDescription`: Review Description
+- `isVerified`: Verified
+- `reviewedIn`: Reviewed In
+- `reviewReaction`: Review Reaction
+- `variant`: Variant
+- `reviewImages`: Review Images
+- `reviewId`: Review ID
+- `helpfulCount`: Helpful
+- `reviewDate`: Date
+- `reviewLocation`: Location
+- `sentimentHint`: Sentiment
+- `wordCount`: Words
+- `hasImages`: Has Images
+- `imageCount`: Image Count
+- `reviewUrl`: Review URL
+- `isVineVoice`: Vine
+- `reviewVideos`: Review Videos
+
+All 28 declared fields: `references/output-fields.json`.
 
 ## Inputs
 
 | Field | Type | Required | Default | Notes |
 |---|---|---|---|---|
-| `productUrls` | array | no |  | Amazon product URLs (/dp/, /gp/product/, /gp/aw/d/, /product/) or bare 10-character ASINs, on any supported Amazon domain. Leave empty to discover products from `keywords`/`categor |
-| `keywords` | array | no |  | Search terms used to discover products when `productUrls` is empty (e.g. "wireless earbuds"). Each keyword contributes up to `maxProductsToDiscover` products. |
-| `categoryUrls` | array | no |  | Advanced discovery: Amazon `/s?...` search URLs or `/b?node=...` category URLs. Used only when `productUrls` is empty. |
+| `productUrls` | array | no |  | Amazon product URLs (/dp/, /gp/product/, /gp/aw/d/, /product/) or bare 10-character ASINs, on any supported Amazon domain. |
+| `keywords` | array | no | [] | Search terms used to discover products when `productUrls` is empty (e.g. "wireless earbuds"). Each keyword contributes up to `maxProductsToDiscover` products. |
+| `categoryUrls` | array | no | [] | Advanced discovery: Amazon `/s?...` search URLs or `/b?node=...` category URLs. Used only when `productUrls` is empty. |
 | `maxProductsToDiscover` | integer | no | 5 | Maximum products discovered from each keyword or category URL (1-50). Ignored when `productUrls` is supplied. |
 | `country` | string | no | amazon.com | Amazon storefront to use for bare ASINs, discovery, and products whose URL does not carry a domain. Product URLs keep their own domain. |
-| `maxReviews` | integer | no | 100 | Hard cap per product after merging and deduplication (1-2000). The product-page sample alone yields about 8-13 rows; the optional extended feed can add 100-800+ for popular US prod |
-| `extendedHistory` | boolean | no | true | Merge Amazon's public extended review feed for each ASIN (no login): up to 100 rows per star/sort bucket, typically 100-800+ unique reviews for popular US products, deduplicated ag |
-| `mergeMarketplaces` | array | no |  | Fetch the same product on these additional Amazon marketplaces and merge their deduplicated product-page reviews. Empty = the product's own marketplace only. |
+| `maxReviews` | integer | no | 100 | Hard cap per product after merging and deduplication (1-2000). The product-page sample alone yields about 8-13 rows; the optional extended feed can add 100-800+ for popular US… |
+| `extendedHistory` | boolean | no | true | Merge Amazon's public extended review feed for each ASIN (no login): up to 100 rows per star/sort bucket, typically 100-800+ unique reviews for popular US products, deduplicated… |
+| `mergeMarketplaces` | array | no | [] | Fetch the same product on these additional Amazon marketplaces and merge their deduplicated product-page reviews. Empty = the product's own marketplace only. |
 | `sortBy` | string | no | helpful | Order of the returned reviews: most helpful first, or most recent first. |
 | `filterByStar` | string | no |  | Keep only reviews with this rating. `positive` keeps 4-5 stars and `critical` keeps 1-2 stars. Applied after merging, so narrow filters can legitimately return few or no rows. |
 | `verifiedPurchasesOnly` | boolean | no | false | Keep only reviews carrying Amazon's Verified Purchase badge. Applied server-side in the extended feed (and cookie mode) and client-side for product-page rows. |
-| `filterKeywords` | array | no |  | Keep only reviews whose title or text contains at least one of these keywords (case-insensitive). Empty = no keyword filter. |
+| `filterKeywords` | array | no | [] | Keep only reviews whose title or text contains at least one of these keywords (case-insensitive). Empty = no keyword filter. |
 | `reviewsNewerThan` | string | no |  | Keep only reviews dated on or after this date (YYYY-MM-DD or any ISO date). Reviews whose localized date cannot be parsed are kept. Empty = no date filter. |
 | `mediaReviewsOnly` | boolean | no | false | Keep only reviews that include at least one reviewer-uploaded image or video. |
+
+4 more optional fields on the Actor's Input tab.
 
 Example:
 
@@ -67,42 +90,35 @@ Example:
 
 ## Run it
 
-Set `APIFY_TOKEN` in your environment, then call the synchronous endpoint for small and medium runs:
+Set `APIFY_TOKEN`, then call the synchronous endpoint for small and medium runs (it waits up to 300 seconds):
 
 ```bash
-curl -s -X POST "https://api.apify.com/v2/acts/vexaloom-labs~amazon-customer-review-and-rating-summary-scraper/run-sync-get-dataset-items?token=$APIFY_TOKEN" \
+curl -s -X POST "https://api.apify.com/v2/acts/vexaloom-labs~amazon-customer-review-and-rating-summary-scraper/run-sync-get-dataset-items" \
+  -H "Authorization: Bearer $APIFY_TOKEN" \
   -H "Content-Type: application/json" \
-  -d @references/example-input.json
+  -d @references/example-input.json > output.json
 ```
 
-For large runs, start an async run and read the dataset:
+Or with Node 18+: `node scripts/run.mjs [input.json]`.
+
+For large runs, start an async run and read its dataset when it finishes:
 
 ```bash
-RUN=$(curl -s -X POST "https://api.apify.com/v2/acts/vexaloom-labs~amazon-customer-review-and-rating-summary-scraper/runs?token=$APIFY_TOKEN" \
-  -H "Content-Type: application/json" \
-  -d @references/example-input.json | jq -r '.data.id')
-
-curl -s "https://api.apify.com/v2/actor-runs/$RUN?token=$APIFY_TOKEN" | jq '.data.status'
-curl -s "https://api.apify.com/v2/datasets/$(curl -s "https://api.apify.com/v2/actor-runs/$RUN?token=$APIFY_TOKEN" | jq -r '.data.defaultDatasetId')/items?token=$APIFY_TOKEN&format=json" > output.json
+RUN=$(curl -s -X POST "https://api.apify.com/v2/acts/vexaloom-labs~amazon-customer-review-and-rating-summary-scraper/runs" \
+  -H "Authorization: Bearer $APIFY_TOKEN" -H "Content-Type: application/json" \
+  -d @references/example-input.json)
+RUN_ID=$(echo "$RUN" | jq -r '.data.id'); DATASET=$(echo "$RUN" | jq -r '.data.defaultDatasetId')
+curl -s "https://api.apify.com/v2/actor-runs/$RUN_ID?waitForFinish=60" -H "Authorization: Bearer $APIFY_TOKEN" | jq -r '.data.status'
+curl -s "https://api.apify.com/v2/datasets/$DATASET/items?format=json" -H "Authorization: Bearer $APIFY_TOKEN" > output.json
 ```
-
-Or import the n8n workflow: https://github.com/bolvein-firex/scraping-n8n-workflows/blob/main/workflows/amazon-customer-review-and-rating-summary-scraper.json
 
 ## Cost and limits
 
-- Billing is per Apify actor run and per dataset item. Check the actor page for current pricing.
-- `run-sync-get-dataset-items` has a request timeout. Use the async pattern for large jobs.
-- Respect rate limits and the target site's terms.
+- Apify bills the Actor's usage on your account; the Actor's Pricing tab shows the current price.
+- Keep the limit in the input small for a first run.
 
 ## Guardrails
 
-- Public data only. Do not use cookies, sessions, or private account data.
-- Do not use the output for spam, harassment, or unlawful discrimination.
-- Verify local law and the target site's terms before running at scale.
-- Demo rows in the Scraper Finder video are illustrative.
-
-## Files
-
-- `scripts/run.mjs` - minimal Node runner using `APIFY_TOKEN`
-- `references/input-schema.json` - full actor input schema
-- `references/example-input.json` - starter input
+- Public data only. Do not pass cookies, sessions or private account data.
+- Do not use the output for spam, harassment or unlawful discrimination.
+- Check the target site's terms and local law before running at scale.
