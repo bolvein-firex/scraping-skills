@@ -20,6 +20,7 @@ New public-data workflow every day. Free. No email. No course.
 
 | Skill | Platform | Output |
 |---|---|---|
+| [AliExpress Multi-Region Search, Store & Review Scraper](skills/aliexpress-multi-region-search-store-and-review-scraper/SKILL.md) | AliExpress | author, business, rating, text |
 | [Amazon Customer Review & Rating Summary Scraper](skills/amazon-customer-review-and-rating-summary-scraper/SKILL.md) | Amazon | author, rating, text, verified |
 | [Amazon Review Aggregates & Extended History Scraper](skills/amazon-review-aggregates-and-extended-history-scraper/SKILL.md) | Amazon | author, business, rating, text |
 | [Booking.com Hotel Price & Amenity Search Scraper](skills/booking-com-hotel-price-and-amenity-search-scraper/SKILL.md) | Booking.com | title, price, rating, reviews |
