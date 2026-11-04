@@ -45,7 +45,7 @@ node ~/.claude/skills/aliexpress-multi-region-search-store-and-review-scraper/sc
 
 | Job | Skill | Returns |
 |---|---|---|
-| Walk Score for a list of addresses | [us-walkability-transit-and-bike-score-extractor](skills/us-walkability-transit-and-bike-score-extractor/SKILL.md) | `address`, `locationType`, `walkScore`, `transitScore`, `bikeScore` |
+| Walk Score for a list of addresses | [us-walkability-transit-and-bike-score-extractor](skills/us-walkability-transit-and-bike-score-extractor/SKILL.md) | `address`, `city`, `walkScore`, `transitScore`, `bikeScore` |
 | Zillow for-sale, rental and sold listings | [zillow-for-sale-rent-and-sold-listing-extractor](skills/zillow-for-sale-rent-and-sold-listing-extractor/SKILL.md) | `address`, `price`, `soldPrice`, `beds`, `baths` |
 
 ### Travel and short-term rentals
@@ -98,7 +98,7 @@ Output fields are the Actor's own column names, read from its dataset schema at 
 | 14 | [Reddit Multi-Mode Scraper for Posts, Comments & Profiles](skills/reddit-multi-mode-scraper-for-posts-comments-and-profiles/SKILL.md) | Reddit | `subreddit_prefixed`, `title`, `author`, `score`, `commentCount` | [Watch](https://www.youtube.com/shorts/3TmxkUNaB0U) |
 | 15 | [Shopify Store Catalog & Pricing Extractor](skills/shopify-store-catalog-and-pricing-extractor/SKILL.md) | Shopify | `title`, `price`, `compareAtPrice`, `available`, `vendor` | [Watch](https://www.youtube.com/shorts/398NV7q-K6w) |
 | 16 | [TikTok Hashtag Momentum & Top Creator Tracker](skills/tiktok-hashtag-momentum-and-top-creator-tracker/SKILL.md) | TikTok | `rankIndex`, `hashtagName`, `publishCnt`, `vv` | [Watch](https://www.youtube.com/shorts/C3buLaYtlGg) |
-| 17 | [US Walkability, Transit & Bike Score Extractor](skills/us-walkability-transit-and-bike-score-extractor/SKILL.md) | Walk Score | `address`, `locationType`, `walkScore`, `transitScore`, `bikeScore` | [Watch](https://www.youtube.com/shorts/yCT9c3LRopU) |
+| 17 | [US Walkability, Transit & Bike Score Extractor](skills/us-walkability-transit-and-bike-score-extractor/SKILL.md) | Walk Score | `address`, `city`, `walkScore`, `transitScore`, `bikeScore` | [Watch](https://www.youtube.com/shorts/yCT9c3LRopU) |
 | 18 | [Website Contact Page Email & Phone Crawler](skills/website-contact-page-email-and-phone-crawler/SKILL.md) | Any website | `websiteUrl`, `status`, `emails`, `primaryEmail`, `phones` | [Watch](https://www.youtube.com/shorts/MHdeuiVwMZA) |
 | 19 | [Zillow For-Sale, Rent & Sold Listing Extractor](skills/zillow-for-sale-rent-and-sold-listing-extractor/SKILL.md) | Zillow | `address`, `price`, `soldPrice`, `beds`, `baths` | [Watch](https://www.youtube.com/shorts/bNjKOMdRlSY) |
 
