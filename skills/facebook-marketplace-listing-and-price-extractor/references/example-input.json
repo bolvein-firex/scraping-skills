@@ -1,0 +1,22 @@
+{
+  "mode": "auto",
+  "startUrls": [],
+  "searchQueries": [],
+  "country": "US",
+  "radiusKm": 65,
+  "category": "all",
+  "sortBy": "relevance",
+  "condition": "any",
+  "deliveryMethod": "all",
+  "availability": "all",
+  "exactMatch": false,
+  "maxItems": 50,
+  "maxItemsPerUrl": 50,
+  "maxPagesPerUrl": 100,
+  "scrapeMode": "fast",
+  "includeListingDetails": false,
+  "includeAllPhotos": false,
+  "rehostImages": true,
+  "deduplicateAcrossInputs": true,
+  "location": "New York, NY"
+}
