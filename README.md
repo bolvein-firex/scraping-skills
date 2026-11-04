@@ -1,8 +1,8 @@
 # Scraping Skills
 
-Agent skills (SKILL.md) for Claude Code and other agents that pull public web data from Google Maps, Amazon, Shopify, Zillow, Airbnb, Indeed, TikTok, Reddit and 10 more sources through Apify Actors and return named fields as JSON.
+Agent skills (SKILL.md) for Claude Code and other agents that pull public web data from Google Maps, Amazon, Shopify, Zillow, Airbnb, Indeed, TikTok, Reddit and 11 more sources through Apify Actors and return named fields as JSON.
 
-**21 skills** · 16 with a YouTube Short · last updated 2026-11-04 · MIT licence
+**22 skills** · 16 with a YouTube Short · last updated 2026-11-04 · MIT licence
 
 ## Quick start
 
@@ -62,6 +62,7 @@ node ~/.claude/skills/aliexpress-multi-region-search-store-and-review-scraper/sc
 | Greenhouse ATS job board | [greenhouse-ats-job-board-lookup-by-company](skills/greenhouse-ats-job-board-lookup-by-company/SKILL.md) | `title`, `companySlug`, `companyName`, `location`, `departments` |
 | Indeed job scraper with salaries | [indeed-global-job-scraper-with-company-salary-reports](skills/indeed-global-job-scraper-with-company-salary-reports/SKILL.md) | `positionName`, `displayTitle`, `company`, `rating`, `salary` |
 | We Work Remotely job listings scraper | [we-work-remotely-job-listings-and-salary-extractor](skills/we-work-remotely-job-listings-and-salary-extractor/SKILL.md) | `title`, `company`, `category`, `salary`, `postedAt` |
+| Workday careers site job listings scraper | [workday-careers-site-job-listings-extractor](skills/workday-careers-site-job-listings-extractor/SKILL.md) | `title`, `tenant`, `location`, `postedOn` |
 
 ### Social media and trends
 
@@ -104,7 +105,8 @@ Output fields are the Actor's own column names, read from its dataset schema at 
 | 18 | [US Walkability, Transit & Bike Score Extractor](skills/us-walkability-transit-and-bike-score-extractor/SKILL.md) | Walk Score | `address`, `city`, `walkScore`, `transitScore`, `bikeScore` | [Watch](https://www.youtube.com/shorts/yCT9c3LRopU) |
 | 19 | [We Work Remotely Job Listings & Salary Extractor](skills/we-work-remotely-job-listings-and-salary-extractor/SKILL.md) | We Work Remotely | `title`, `company`, `category`, `salary`, `postedAt` |  |
 | 20 | [Website Contact Page Email & Phone Crawler](skills/website-contact-page-email-and-phone-crawler/SKILL.md) | Any website | `websiteUrl`, `status`, `emails`, `primaryEmail`, `phones` | [Watch](https://www.youtube.com/shorts/MHdeuiVwMZA) |
-| 21 | [Zillow For-Sale, Rent & Sold Listing Extractor](skills/zillow-for-sale-rent-and-sold-listing-extractor/SKILL.md) | Zillow | `address`, `price`, `soldPrice`, `beds`, `baths` | [Watch](https://www.youtube.com/shorts/bNjKOMdRlSY) |
+| 21 | [Workday Careers Site Job Listings Extractor](skills/workday-careers-site-job-listings-extractor/SKILL.md) | Workday | `title`, `tenant`, `location`, `postedOn` |  |
+| 22 | [Zillow For-Sale, Rent & Sold Listing Extractor](skills/zillow-for-sale-rent-and-sold-listing-extractor/SKILL.md) | Zillow | `address`, `price`, `soldPrice`, `beds`, `baths` | [Watch](https://www.youtube.com/shorts/bNjKOMdRlSY) |
 
 ## FAQ
 
