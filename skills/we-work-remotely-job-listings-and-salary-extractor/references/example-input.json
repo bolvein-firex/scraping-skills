@@ -1,16 +1,8 @@
 {
-  "mode": "browse",
-  "categories": [],
-  "startUrls": [],
-  "employmentTypes": [],
-  "regions": [],
-  "countries": [],
-  "postedWithin": "any",
-  "requireSalary": false,
-  "includeDescription": true,
-  "cleanHtml": true,
-  "includeDetails": false,
-  "includeCompanyProfile": true,
-  "incremental": false,
-  "maxItems": 200
+  "categories": [
+    "remote-full-stack-programming-jobs"
+  ],
+  "includeCompanyProfile": false,
+  "maxItems": 25,
+  "mode": "browse"
 }

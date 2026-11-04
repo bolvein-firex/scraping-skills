@@ -3,7 +3,7 @@
   "searchQueries": [
     "restaurants in New York, NY"
   ],
-  "max_results": 2000,
+  "max_results": 20,
   "extractEmails": true,
   "onlySaveResults": "onlyWithContacts"
 }

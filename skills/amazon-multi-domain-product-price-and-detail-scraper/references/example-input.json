@@ -3,7 +3,7 @@
     "wireless earbuds"
   ],
   "marketplace": "amazon.com",
-  "maxItems": 500,
+  "maxItems": 25,
   "includeDetails": true,
-  "dealsOnly": true
+  "dealsOnly": false
 }

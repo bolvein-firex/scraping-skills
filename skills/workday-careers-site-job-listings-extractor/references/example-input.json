@@ -1,17 +1,6 @@
 {
-  "mode": "careerSite",
-  "startUrls": [
-    "https://salesforce.wd12.myworkdayjobs.com/External_Career_Site"
-  ],
-  "region": "auto",
-  "locations": [],
-  "jobFamilies": [],
-  "remoteOnly": false,
-  "postedWithin": "any",
-  "scrapeDetails": true,
-  "includeJobFamily": true,
-  "maxItems": 50,
-  "proxyConfiguration": {
-    "useApifyProxy": false
-  }
+  "scrapeDetails": false,
+  "includeJobFamily": false,
+  "maxItems": 25,
+  "mode": "careerSite"
 }

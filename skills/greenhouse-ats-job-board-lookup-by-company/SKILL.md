@@ -58,25 +58,20 @@ One JSON row per result. Columns from the Actor's dataset schema:
 
 8 more optional fields on the Actor's Input tab.
 
-Example:
+Example (`references/example-input.json`):
 
 ```json
 {
+  "companies": [
+    "airbnb"
+  ],
+  "maxItems": 25,
   "mode": "companyJobs",
-  "workplaceType": "any",
-  "employmentType": "any",
-  "onlyWithSalary": false,
-  "salaryCurrency": "any",
-  "sortBy": "board",
-  "content": false,
-  "descriptionFormat": "html",
-  "includeQuestions": false,
-  "maxItems": 500,
-  "maxJobsPerCompany": 0,
-  "verifyCompanies": true,
   "searchQuery": "head of growth"
 }
 ```
+
+The input passes the Actor's input schema (checked at every publish). First run: `maxItems` = 25, small enough for the 300-second sync wait; raise it once the rows look right.
 
 ## Run it
 

@@ -1,17 +1,11 @@
 {
   "mode": "search",
-  "startUrls": [],
+  "destination": "Paris",
+  "checkIn": "2026-12-01",
+  "checkOut": "2026-12-03",
   "adults": 2,
   "rooms": 1,
-  "propertyType": "all",
-  "minReviewScore": 0,
-  "stars": "0",
-  "freeCancellation": false,
-  "breakfast": false,
-  "pool": false,
   "currency": "USD",
-  "language": "en-us",
-  "maxItems": 3,
-  "includeRooms": true,
-  "includeFullAmenities": false
+  "maxItems": 20,
+  "includeRooms": false
 }

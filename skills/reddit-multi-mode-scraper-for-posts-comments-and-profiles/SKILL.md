@@ -63,19 +63,24 @@ All 9 declared fields: `references/output-fields.json`.
 
 53 more optional fields on the Actor's Input tab.
 
-Example:
+Example (`references/example-input.json`):
 
 ```json
 {
+  "mode": "subreddit",
   "subreddits": [
-    "smallbusiness",
-    "SaaS"
+    "smallbusiness"
   ],
-  "searchQuery": "lead generation",
-  "maxItems": 1000,
+  "sort": "top",
+  "timeFilter": "week",
+  "maxItems": 25,
+  "maxPosts": 10,
+  "maxComments": 20,
   "includeComments": true
 }
 ```
+
+The input passes the Actor's input schema (checked at every publish). First run: `maxItems` = 25, small enough for the 300-second sync wait; raise it once the rows look right.
 
 ## Run it
 

@@ -1,15 +1,8 @@
 {
+  "companies": [
+    "airbnb"
+  ],
+  "maxItems": 25,
   "mode": "companyJobs",
-  "workplaceType": "any",
-  "employmentType": "any",
-  "onlyWithSalary": false,
-  "salaryCurrency": "any",
-  "sortBy": "board",
-  "content": false,
-  "descriptionFormat": "html",
-  "includeQuestions": false,
-  "maxItems": 500,
-  "maxJobsPerCompany": 0,
-  "verifyCompanies": true,
   "searchQuery": "head of growth"
 }

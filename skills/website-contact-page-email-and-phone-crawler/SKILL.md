@@ -72,18 +72,19 @@ All 26 declared fields: `references/output-fields.json`.
 | `onlyWithContacts` | boolean | no | false | Drop records for websites where no email, phone, social profile or contact form was found. |
 | `includeNamedEmails` | boolean | no | true | Include personal addresses such as jane.smith@company.com. When off, only role addresses such as info@, sales@ and support@ are kept. |
 
-Example:
+Example (`references/example-input.json`):
 
 ```json
 {
-  "websites": [
-    "example.com",
-    "anotherbrand.com"
+  "urls": [
+    "https://apify.com",
+    "https://n8n.io"
   ],
-  "maxContactPages": 3,
-  "verifyMx": true
+  "maxPagesPerSite": 10
 }
 ```
+
+The input passes the Actor's input schema (checked at every publish). The run size follows the number of inputs you pass.
 
 ## Run it
 

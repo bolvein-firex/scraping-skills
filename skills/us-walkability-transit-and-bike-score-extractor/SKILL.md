@@ -58,21 +58,21 @@ All 13 declared fields: `references/output-fields.json`.
 | `includeNeighborhoods` | boolean | no | true | Add the city page's neighborhood ranking table to each city record. |
 | `maxItems` | integer | no | 50 | Maximum records to emit (state summary counts as one). |
 
-Example:
+Example (`references/example-input.json`):
 
 ```json
 {
   "mode": "byCity",
-  "addresses": [],
   "cities": [
     "Seattle, WA"
   ],
-  "neighborhoods": [],
   "state": "WA",
   "includeNeighborhoods": true,
-  "maxItems": 50
+  "maxItems": 25
 }
 ```
+
+The input passes the Actor's input schema (checked at every publish). First run: `maxItems` = 25, small enough for the 300-second sync wait; raise it once the rows look right.
 
 ## Run it
 

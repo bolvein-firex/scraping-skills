@@ -62,32 +62,20 @@ All 75 declared fields: `references/output-fields.json`.
 
 13 more optional fields on the Actor's Input tab.
 
-Example:
+Example (`references/example-input.json`):
 
 ```json
 {
-  "mode": "auto",
-  "startUrls": [],
-  "searchQueries": [],
-  "country": "US",
-  "radiusKm": 65,
-  "category": "all",
-  "sortBy": "relevance",
-  "condition": "any",
-  "deliveryMethod": "all",
-  "availability": "all",
-  "exactMatch": false,
-  "maxItems": 50,
-  "maxItemsPerUrl": 50,
-  "maxPagesPerUrl": 100,
-  "scrapeMode": "fast",
-  "includeListingDetails": false,
-  "includeAllPhotos": false,
-  "rehostImages": true,
-  "deduplicateAcrossInputs": true,
-  "location": "New York, NY"
+  "mode": "search",
+  "searchQueries": [
+    "office chair"
+  ],
+  "location": "Austin, Texas",
+  "maxItems": 25
 }
 ```
+
+The input passes the Actor's input schema (checked at every publish). First run: `maxItems` = 25, small enough for the 300-second sync wait; raise it once the rows look right.
 
 ## Run it
 

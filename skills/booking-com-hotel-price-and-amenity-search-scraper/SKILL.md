@@ -70,27 +70,23 @@ All 45 declared fields: `references/output-fields.json`.
 
 7 more optional fields on the Actor's Input tab.
 
-Example:
+Example (`references/example-input.json`):
 
 ```json
 {
   "mode": "search",
-  "startUrls": [],
+  "destination": "Paris",
+  "checkIn": "2026-12-01",
+  "checkOut": "2026-12-03",
   "adults": 2,
   "rooms": 1,
-  "propertyType": "all",
-  "minReviewScore": 0,
-  "stars": "0",
-  "freeCancellation": false,
-  "breakfast": false,
-  "pool": false,
   "currency": "USD",
-  "language": "en-us",
-  "maxItems": 3,
-  "includeRooms": true,
-  "includeFullAmenities": false
+  "maxItems": 20,
+  "includeRooms": false
 }
 ```
+
+The input passes the Actor's input schema (checked at every publish). First run: `maxItems` = 20, small enough for the 300-second sync wait; raise it once the rows look right.
 
 ## Run it
 

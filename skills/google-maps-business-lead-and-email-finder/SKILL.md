@@ -75,7 +75,7 @@ All 39 declared fields: `references/output-fields.json`.
 
 6 more optional fields on the Actor's Input tab.
 
-Example:
+Example (`references/example-input.json`):
 
 ```json
 {
@@ -83,11 +83,13 @@ Example:
   "searchQueries": [
     "restaurants in New York, NY"
   ],
-  "max_results": 2000,
+  "max_results": 20,
   "extractEmails": true,
   "onlySaveResults": "onlyWithContacts"
 }
 ```
+
+The input passes the Actor's input schema (checked at every publish). First run: `max_results` = 20, small enough for the 300-second sync wait; raise it once the rows look right.
 
 ## Run it
 

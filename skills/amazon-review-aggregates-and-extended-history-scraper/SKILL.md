@@ -72,29 +72,20 @@ All 28 declared fields: `references/output-fields.json`.
 
 3 more optional fields on the Actor's Input tab.
 
-Example:
+Example (`references/example-input.json`):
 
 ```json
 {
-  "keywords": [],
-  "categoryUrls": [],
-  "maxProductsToDiscover": 10,
-  "extendedHistory": true,
-  "mergeMarketplaces": [],
-  "includeAggregates": true,
-  "country": "amazon.com",
-  "maxReviews": 100,
-  "sortBy": "helpful",
-  "verifiedPurchasesOnly": false,
-  "filterKeywords": [],
-  "mediaReviewsOnly": false,
-  "includeImages": true,
-  "includeGdprSensitive": false,
   "productUrls": [
-    "https://www.amazon.com/dp/B0EXAMPLE"
-  ]
+    "https://www.amazon.com/dp/B09X7MPX8L"
+  ],
+  "country": "amazon.com",
+  "maxReviews": 30,
+  "includeAggregates": true
 }
 ```
+
+The input passes the Actor's input schema (checked at every publish). First run: `maxProductsToDiscover` = 10, small enough for the 300-second sync wait; raise it once the rows look right.
 
 ## Run it
 

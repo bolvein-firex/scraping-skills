@@ -66,17 +66,19 @@ All 29 declared fields: `references/output-fields.json`.
 | `minRating` | number | no |  | Only include businesses with a rating at or above this value (1.0–5.0). Leave empty to include all. |
 | `language` | string | no | en | Language for Google Maps interface and results. |
 
-Example:
+Example (`references/example-input.json`):
 
 ```json
 {
-  "keyword": "coffee shop",
-  "location": "Denver, CO",
-  "gridSize": 7,
-  "radius": 5,
-  "maxResultsPerPoint": 20
+  "searchQuery": "coffee shops",
+  "locationName": "Denver, CO",
+  "radiusKm": 2,
+  "maxPlacesPerCell": 20,
+  "maxTotalResults": 50
 }
 ```
+
+The input passes the Actor's input schema (checked at every publish). First run: `maxTotalResults` = 50, small enough for the 300-second sync wait; raise it once the rows look right.
 
 ## Run it
 

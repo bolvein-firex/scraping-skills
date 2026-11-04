@@ -1,5 +1,11 @@
 {
-  "storeUrl": "https://example-store.com",
-  "includeVariants": true,
-  "includeSoldOut": true
+  "mode": "catalog",
+  "storeUrls": [
+    "https://deathwishcoffee.com"
+  ],
+  "maxItems": 50,
+  "currency": "store",
+  "available": "any",
+  "includeDetails": false,
+  "flattenVariants": false
 }

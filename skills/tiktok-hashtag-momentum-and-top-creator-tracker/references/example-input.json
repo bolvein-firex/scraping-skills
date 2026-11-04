@@ -4,8 +4,7 @@
     "US"
   ],
   "periods": [
-    7
+    "7"
   ],
-  "includeCreatorLeaders": true,
-  "maxItems": 100
+  "maxItems": 25
 }

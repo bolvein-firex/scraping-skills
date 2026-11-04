@@ -1,7 +1,7 @@
 {
-  "keyword": "coffee shop",
-  "location": "Denver, CO",
-  "gridSize": 7,
-  "radius": 5,
-  "maxResultsPerPoint": 20
+  "searchQuery": "coffee shops",
+  "locationName": "Denver, CO",
+  "radiusKm": 2,
+  "maxPlacesPerCell": 20,
+  "maxTotalResults": 50
 }

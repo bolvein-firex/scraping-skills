@@ -1,5 +1,7 @@
 {
-  "searchQuery": "roofing",
-  "status": "Active",
-  "maxResults": 500
+  "mode": "byKeyword",
+  "keywordSearches": [
+    "roofing"
+  ],
+  "maxItems": 25
 }

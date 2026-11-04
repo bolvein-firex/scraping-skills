@@ -1,9 +1,10 @@
 {
-  "terms": [
+  "mode": "interest",
+  "searchTerms": [
     "ai agents",
-    "n8n workflows"
+    "n8n"
   ],
   "geo": "US",
   "timeRange": "today 3-m",
-  "includeRelatedQueries": true
+  "maxItems": 50
 }

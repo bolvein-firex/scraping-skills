@@ -59,7 +59,7 @@ All 13 declared fields: `references/output-fields.json`.
 
 2 more optional fields on the Actor's Input tab.
 
-Example:
+Example (`references/example-input.json`):
 
 ```json
 {
@@ -68,12 +68,13 @@ Example:
     "US"
   ],
   "periods": [
-    7
+    "7"
   ],
-  "includeCreatorLeaders": true,
-  "maxItems": 100
+  "maxItems": 25
 }
 ```
+
+The input passes the Actor's input schema (checked at every publish). First run: `maxItems` = 25, small enough for the 300-second sync wait; raise it once the rows look right.
 
 ## Run it
 

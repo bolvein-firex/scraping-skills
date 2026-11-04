@@ -54,27 +54,18 @@ One JSON row per result. Columns from the Actor's dataset schema:
 
 2 more optional fields on the Actor's Input tab.
 
-Example:
+Example (`references/example-input.json`):
 
 ```json
 {
-  "mode": "careerSite",
-  "startUrls": [
-    "https://salesforce.wd12.myworkdayjobs.com/External_Career_Site"
-  ],
-  "region": "auto",
-  "locations": [],
-  "jobFamilies": [],
-  "remoteOnly": false,
-  "postedWithin": "any",
-  "scrapeDetails": true,
-  "includeJobFamily": true,
-  "maxItems": 50,
-  "proxyConfiguration": {
-    "useApifyProxy": false
-  }
+  "scrapeDetails": false,
+  "includeJobFamily": false,
+  "maxItems": 25,
+  "mode": "careerSite"
 }
 ```
+
+The input passes the Actor's input schema (checked at every publish). First run: `maxItems` = 25, small enough for the 300-second sync wait; raise it once the rows look right.
 
 ## Run it
 

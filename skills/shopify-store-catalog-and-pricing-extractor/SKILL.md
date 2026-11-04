@@ -64,15 +64,23 @@ All 42 declared fields: `references/output-fields.json`.
 
 5 more optional fields on the Actor's Input tab.
 
-Example:
+Example (`references/example-input.json`):
 
 ```json
 {
-  "storeUrl": "https://example-store.com",
-  "includeVariants": true,
-  "includeSoldOut": true
+  "mode": "catalog",
+  "storeUrls": [
+    "https://deathwishcoffee.com"
+  ],
+  "maxItems": 50,
+  "currency": "store",
+  "available": "any",
+  "includeDetails": false,
+  "flattenVariants": false
 }
 ```
+
+The input passes the Actor's input schema (checked at every publish). First run: `maxItems` = 50, small enough for the 300-second sync wait; raise it once the rows look right.
 
 ## Run it
 

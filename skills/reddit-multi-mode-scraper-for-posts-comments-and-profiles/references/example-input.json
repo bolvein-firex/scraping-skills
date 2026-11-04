@@ -1,9 +1,12 @@
 {
+  "mode": "subreddit",
   "subreddits": [
-    "smallbusiness",
-    "SaaS"
+    "smallbusiness"
   ],
-  "searchQuery": "lead generation",
-  "maxItems": 1000,
+  "sort": "top",
+  "timeFilter": "week",
+  "maxItems": 25,
+  "maxPosts": 10,
+  "maxComments": 20,
   "includeComments": true
 }

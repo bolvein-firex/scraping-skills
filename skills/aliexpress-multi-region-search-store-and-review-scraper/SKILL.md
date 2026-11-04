@@ -64,33 +64,21 @@ One JSON row per result. Columns from the Actor's dataset schema:
 
 10 more optional fields on the Actor's Input tab.
 
-Example:
+Example (`references/example-input.json`):
 
 ```json
 {
   "mode": "search",
-  "region": "US",
-  "language": "en_US",
-  "sortBy": "default",
-  "priceMin": 0,
-  "priceMax": 0,
-  "ratingMin": 0,
-  "freeShippingOnly": false,
-  "choiceOnly": false,
-  "fourStarPlus": false,
-  "includeSponsored": true,
-  "includeWelcomeGifts": false,
-  "maxItems": 100,
-  "maxPages": 3,
-  "includeReviews": false,
-  "maxReviewsPerProduct": 20,
-  "reviewFilter": "all",
-  "includeProductStats": true,
   "searchQueries": [
-    "keyword"
-  ]
+    "phone case"
+  ],
+  "region": "US",
+  "maxItems": 25,
+  "maxPages": 1
 }
 ```
+
+The input passes the Actor's input schema (checked at every publish). First run: `maxItems` = 25, small enough for the 300-second sync wait; raise it once the rows look right.
 
 ## Run it
 

@@ -1,11 +1,9 @@
 {
   "mode": "byCity",
-  "addresses": [],
   "cities": [
     "Seattle, WA"
   ],
-  "neighborhoods": [],
   "state": "WA",
   "includeNeighborhoods": true,
-  "maxItems": 50
+  "maxItems": 25
 }

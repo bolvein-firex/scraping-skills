@@ -1,8 +1,8 @@
 {
   "mode": "BUY",
   "search": "Austin, TX",
-  "maxItems": 500,
+  "maxItems": 25,
   "scrapeDetails": true,
-  "daysOnZillow": "1",
+  "daysOnZillow": "7",
   "sortBy": "newest"
 }

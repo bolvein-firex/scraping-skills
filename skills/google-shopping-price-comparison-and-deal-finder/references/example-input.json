@@ -1,11 +1,9 @@
 {
   "mode": "search",
+  "queries": [
+    "wireless earbuds"
+  ],
   "countryCode": "us",
-  "languageCode": "en",
-  "onSale": false,
-  "freeShipping": false,
-  "minRating": "0",
-  "maxResultsPerQuery": 20,
-  "includePriceHistory": true,
-  "includeProductDetails": false
+  "maxResultsPerQuery": 25,
+  "includePriceHistory": false
 }

@@ -1,19 +1,8 @@
 {
-  "keywords": [],
-  "categoryUrls": [],
-  "maxProductsToDiscover": 10,
-  "extendedHistory": true,
-  "mergeMarketplaces": [],
-  "includeAggregates": true,
-  "country": "amazon.com",
-  "maxReviews": 100,
-  "sortBy": "helpful",
-  "verifiedPurchasesOnly": false,
-  "filterKeywords": [],
-  "mediaReviewsOnly": false,
-  "includeImages": true,
-  "includeGdprSensitive": false,
   "productUrls": [
-    "https://www.amazon.com/dp/B0EXAMPLE"
-  ]
+    "https://www.amazon.com/dp/B09X7MPX8L"
+  ],
+  "country": "amazon.com",
+  "maxReviews": 30,
+  "includeAggregates": true
 }

@@ -68,18 +68,20 @@ All 42 declared fields: `references/output-fields.json`.
 
 9 more optional fields on the Actor's Input tab.
 
-Example:
+Example (`references/example-input.json`):
 
 ```json
 {
-  "searchQueries": [
-    "account executive"
-  ],
-  "location": "United States",
-  "maxItems": 1000,
-  "includeSalary": true
+  "position": "account executive",
+  "location": "Austin, TX",
+  "country": "US",
+  "maxItems": 25,
+  "datePosted": "7",
+  "includeCompanyRatings": true
 }
 ```
+
+The input passes the Actor's input schema (checked at every publish). First run: `maxItems` = 25, small enough for the 300-second sync wait; raise it once the rows look right.
 
 ## Run it
 

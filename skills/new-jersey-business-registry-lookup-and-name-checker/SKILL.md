@@ -59,15 +59,19 @@ All 10 declared fields: `references/output-fields.json`.
 | `cityFilter` | string | no |  | Keep only businesses whose on-file city matches exactly (case-insensitive). Leave blank for all cities. |
 | `maxItems` | integer | no | 100 | Hard cap on emitted records (1-500, the source's display limit). Applied exactly, including when it is above 200. |
 
-Example:
+Example (`references/example-input.json`):
 
 ```json
 {
-  "searchQuery": "roofing",
-  "status": "Active",
-  "maxResults": 500
+  "mode": "byKeyword",
+  "keywordSearches": [
+    "roofing"
+  ],
+  "maxItems": 25
 }
 ```
+
+The input passes the Actor's input schema (checked at every publish). First run: `maxItems` = 25, small enough for the 300-second sync wait; raise it once the rows look right.
 
 ## Run it
 

@@ -1,23 +1,9 @@
 {
   "mode": "search",
-  "region": "US",
-  "language": "en_US",
-  "sortBy": "default",
-  "priceMin": 0,
-  "priceMax": 0,
-  "ratingMin": 0,
-  "freeShippingOnly": false,
-  "choiceOnly": false,
-  "fourStarPlus": false,
-  "includeSponsored": true,
-  "includeWelcomeGifts": false,
-  "maxItems": 100,
-  "maxPages": 3,
-  "includeReviews": false,
-  "maxReviewsPerProduct": 20,
-  "reviewFilter": "all",
-  "includeProductStats": true,
   "searchQueries": [
-    "keyword"
-  ]
+    "phone case"
+  ],
+  "region": "US",
+  "maxItems": 25,
+  "maxPages": 1
 }

@@ -65,19 +65,22 @@ All 36 declared fields: `references/output-fields.json`.
 | `includeTrendingNews` | boolean | no | true | Attach news headlines, links and sources from Google's Trending RSS feed to trending items whose titles it covers (about ten highlighted stories per country, anywhere in the list). |
 | `maxItems` | integer | no | 100 | Maximum dataset records per run: each interest row counts as one record, each trending item as one record. Remaining work stops once the limit is reached. |
 
-Example:
+Example (`references/example-input.json`):
 
 ```json
 {
-  "terms": [
+  "mode": "interest",
+  "searchTerms": [
     "ai agents",
-    "n8n workflows"
+    "n8n"
   ],
   "geo": "US",
   "timeRange": "today 3-m",
-  "includeRelatedQueries": true
+  "maxItems": 50
 }
 ```
+
+The input passes the Actor's input schema (checked at every publish). First run: `maxItems` = 50, small enough for the 300-second sync wait; raise it once the rows look right.
 
 ## Run it
 

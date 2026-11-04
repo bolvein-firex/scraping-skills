@@ -63,7 +63,7 @@ All 9 declared fields: `references/output-fields.json`.
 
 17 more optional fields on the Actor's Input tab.
 
-Example:
+Example (`references/example-input.json`):
 
 ```json
 {
@@ -71,11 +71,13 @@ Example:
     "wireless earbuds"
   ],
   "marketplace": "amazon.com",
-  "maxItems": 500,
+  "maxItems": 25,
   "includeDetails": true,
-  "dealsOnly": true
+  "dealsOnly": false
 }
 ```
+
+The input passes the Actor's input schema (checked at every publish). First run: `maxItems` = 25, small enough for the 300-second sync wait; raise it once the rows look right.
 
 ## Run it
 

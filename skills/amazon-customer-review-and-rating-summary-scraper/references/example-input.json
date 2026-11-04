@@ -3,6 +3,7 @@
     "wireless earbuds"
   ],
   "country": "amazon.com",
-  "maxReviews": 100,
+  "maxProductsToDiscover": 2,
+  "maxReviews": 20,
   "includeAggregates": true
 }
