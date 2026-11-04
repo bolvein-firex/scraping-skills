@@ -1,11 +1,11 @@
 ---
 name: facebook-marketplace-listing-and-price-extractor
-description: "Use the Facebook Marketplace Listing & Price Extractor actor to pull market data from Facebook and return symbol, price, change, volume, market cap, URL. Use when the user needs a structured export, a dataset refresh, or a workflow input without maintaining a scraper."
+description: "Use the Facebook Marketplace Listing & Price Extractor actor to pull products from Facebook and return symbol, price, change, volume, market cap, URL. Use when the user needs a price watchlist, a catalog export, or a competitor snapshot without maintaining a scraper."
 ---
 
 # Facebook Marketplace Listing & Price Extractor
 
-Pull **market data** from **Facebook** with the public Scraper Finder actor.
+Pull **products** from **Facebook** with the public Scraper Finder actor.
 
 - Actor: https://apify.com/nimbryxo-studio/facebook-marketplace-listing-and-price-extractor
 - Actor ID: `nimbryxo-studio~facebook-marketplace-listing-and-price-extractor`
@@ -17,7 +17,7 @@ Pull **market data** from **Facebook** with the public Scraper Finder actor.
 
 Use this skill when the user wants:
 
-- a structured export of market data from Facebook
+- a structured export of products from Facebook
 - a repeatable dataset instead of manual copy-paste
 - a CSV/JSON output for a CRM, sheet, dashboard, or agent
 - a scheduled refresh of public data

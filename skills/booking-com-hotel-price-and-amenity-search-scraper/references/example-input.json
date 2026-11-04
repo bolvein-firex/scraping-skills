@@ -1,0 +1,17 @@
+{
+  "mode": "search",
+  "startUrls": [],
+  "adults": 2,
+  "rooms": 1,
+  "propertyType": "all",
+  "minReviewScore": 0,
+  "stars": "0",
+  "freeCancellation": false,
+  "breakfast": false,
+  "pool": false,
+  "currency": "USD",
+  "language": "en-us",
+  "maxItems": 3,
+  "includeRooms": true,
+  "includeFullAmenities": false
+}
