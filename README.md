@@ -2,7 +2,7 @@
 
 Agent skills (SKILL.md) for Claude Code and other agents that pull public web data from Google Maps, Amazon, Shopify, Zillow, Airbnb, Indeed, TikTok, Reddit and 12 more sources through Apify Actors and return named fields as JSON.
 
-**24 skills** · 16 with a YouTube Short · last updated 2026-11-04 · MIT licence
+**25 skills** · 16 with a YouTube Short · last updated 2026-11-04 · MIT licence
 
 ## Quick start
 
@@ -73,6 +73,7 @@ node ~/.claude/skills/aliexpress-multi-region-search-store-and-review-scraper/sc
 | Reddit posts and comments scraper | [reddit-multi-mode-scraper-for-posts-comments-and-profiles](skills/reddit-multi-mode-scraper-for-posts-comments-and-profiles/SKILL.md) | `subreddit_prefixed`, `title`, `author`, `score`, `commentCount` |
 | TikTok trending hashtags | [tiktok-hashtag-momentum-and-top-creator-tracker](skills/tiktok-hashtag-momentum-and-top-creator-tracker/SKILL.md) | `rankIndex`, `hashtagName`, `publishCnt`, `vv` |
 | TikTok keyword search scraper | [tiktok-keyword-search-and-discovery-scraper](skills/tiktok-keyword-search-and-discovery-scraper/SKILL.md) | `rank`, `caption`, `playCount`, `likeCount`, `commentCount` |
+| TikTok verified mention | [tiktok-verified-mention-tracker](skills/tiktok-verified-mention-tracker/SKILL.md) | `targetUsername`, `postUrl`, `author.followerCount`, `playCount`, `likeCount` |
 
 ### Reviews
 
@@ -106,11 +107,12 @@ Output fields are the Actor's own column names, read from its dataset schema at 
 | 17 | [startup.jobs Category & Keyword Job Scraper](skills/startup-jobs-category-and-keyword-job-scraper/SKILL.md) | startup.jobs | `title`, `company`, `location`, `salary`, `postedAt` |  |
 | 18 | [TikTok Hashtag Momentum & Top Creator Tracker](skills/tiktok-hashtag-momentum-and-top-creator-tracker/SKILL.md) | TikTok | `rankIndex`, `hashtagName`, `publishCnt`, `vv` | [Watch](https://www.youtube.com/shorts/C3buLaYtlGg) |
 | 19 | [TikTok Keyword Search & Discovery Scraper](skills/tiktok-keyword-search-and-discovery-scraper/SKILL.md) | TikTok | `rank`, `caption`, `playCount`, `likeCount`, `commentCount` |  |
-| 20 | [US Walkability, Transit & Bike Score Extractor](skills/us-walkability-transit-and-bike-score-extractor/SKILL.md) | Walk Score | `address`, `city`, `walkScore`, `transitScore`, `bikeScore` | [Watch](https://www.youtube.com/shorts/yCT9c3LRopU) |
-| 21 | [We Work Remotely Job Listings & Salary Extractor](skills/we-work-remotely-job-listings-and-salary-extractor/SKILL.md) | We Work Remotely | `title`, `company`, `category`, `salary`, `postedAt` |  |
-| 22 | [Website Contact Page Email & Phone Crawler](skills/website-contact-page-email-and-phone-crawler/SKILL.md) | Any website | `websiteUrl`, `status`, `emails`, `primaryEmail`, `phones` | [Watch](https://www.youtube.com/shorts/MHdeuiVwMZA) |
-| 23 | [Workday Careers Site Job Listings Extractor](skills/workday-careers-site-job-listings-extractor/SKILL.md) | Workday | `title`, `tenant`, `location`, `postedOn` |  |
-| 24 | [Zillow For-Sale, Rent & Sold Listing Extractor](skills/zillow-for-sale-rent-and-sold-listing-extractor/SKILL.md) | Zillow | `address`, `price`, `soldPrice`, `beds`, `baths` | [Watch](https://www.youtube.com/shorts/bNjKOMdRlSY) |
+| 20 | [TikTok Verified Mention Tracker](skills/tiktok-verified-mention-tracker/SKILL.md) | TikTok | `targetUsername`, `postUrl`, `author.followerCount`, `playCount`, `likeCount` |  |
+| 21 | [US Walkability, Transit & Bike Score Extractor](skills/us-walkability-transit-and-bike-score-extractor/SKILL.md) | Walk Score | `address`, `city`, `walkScore`, `transitScore`, `bikeScore` | [Watch](https://www.youtube.com/shorts/yCT9c3LRopU) |
+| 22 | [We Work Remotely Job Listings & Salary Extractor](skills/we-work-remotely-job-listings-and-salary-extractor/SKILL.md) | We Work Remotely | `title`, `company`, `category`, `salary`, `postedAt` |  |
+| 23 | [Website Contact Page Email & Phone Crawler](skills/website-contact-page-email-and-phone-crawler/SKILL.md) | Any website | `websiteUrl`, `status`, `emails`, `primaryEmail`, `phones` | [Watch](https://www.youtube.com/shorts/MHdeuiVwMZA) |
+| 24 | [Workday Careers Site Job Listings Extractor](skills/workday-careers-site-job-listings-extractor/SKILL.md) | Workday | `title`, `tenant`, `location`, `postedOn` |  |
+| 25 | [Zillow For-Sale, Rent & Sold Listing Extractor](skills/zillow-for-sale-rent-and-sold-listing-extractor/SKILL.md) | Zillow | `address`, `price`, `soldPrice`, `beds`, `baths` | [Watch](https://www.youtube.com/shorts/bNjKOMdRlSY) |
 
 ## FAQ
 
