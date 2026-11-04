@@ -13,6 +13,9 @@ Search Booking.com for a destination and dates, and collect each property's pric
 - Input schema: `references/input-schema.json`
 - Output fields: `references/output-fields.json`
 
+Short video breakdown:
+- [Compare hotel prices before your weekly check](https://www.youtube.com/shorts/jQWhZPI54SI)
+
 ## When to use
 
 Use this skill when the user wants:

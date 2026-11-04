@@ -13,6 +13,9 @@ Search AliExpress or fetch product, store, and review records by ID or URL acros
 - Input schema: `references/input-schema.json`
 - Output fields: `references/output-fields.json`
 
+Short video breakdown:
+- [Spot repeat complaints in competitor reviews](https://www.youtube.com/shorts/lY2MQAk6oJA)
+
 ## When to use
 
 Use this skill when the user wants:

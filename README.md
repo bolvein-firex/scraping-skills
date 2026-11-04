@@ -1,8 +1,8 @@
 # Scraping Skills
 
-Agent skills (SKILL.md) for Claude Code and other agents that pull public web data from Google Maps, Amazon, Shopify, Zillow, Airbnb, Indeed, TikTok, Reddit and 8 more sources through Apify Actors and return named fields as JSON.
+Agent skills (SKILL.md) for Claude Code and other agents that pull public web data from Google Maps, Amazon, Shopify, Zillow, Airbnb, Indeed, TikTok, Reddit and 9 more sources through Apify Actors and return named fields as JSON.
 
-**19 skills** · 14 with a YouTube Short · last updated 2026-11-04 · MIT licence
+**20 skills** · 16 with a YouTube Short · last updated 2026-11-04 · MIT licence
 
 ## Quick start
 
@@ -60,6 +60,7 @@ node ~/.claude/skills/aliexpress-multi-region-search-store-and-review-scraper/sc
 | Job | Skill | Returns |
 |---|---|---|
 | Indeed job scraper with salaries | [indeed-global-job-scraper-with-company-salary-reports](skills/indeed-global-job-scraper-with-company-salary-reports/SKILL.md) | `positionName`, `displayTitle`, `company`, `rating`, `salary` |
+| We Work Remotely job listings scraper | [we-work-remotely-job-listings-and-salary-extractor](skills/we-work-remotely-job-listings-and-salary-extractor/SKILL.md) | `title`, `company`, `category`, `salary`, `postedAt` |
 
 ### Social media and trends
 
@@ -83,11 +84,11 @@ Output fields are the Actor's own column names, read from its dataset schema at 
 | # | Skill | Platform | Output fields | Short |
 |---|---|---|---|---|
 | 1 | [Airbnb Listing Price & Location Finder](skills/airbnb-listing-price-and-location-finder/SKILL.md) | Airbnb | `name`, `nightlyPrice`, `totalPrice`, `rating`, `reviewCount` | [Watch](https://www.youtube.com/shorts/aVEDRMB3vsU) |
-| 2 | [AliExpress Multi-Region Search, Store & Review Scraper](skills/aliexpress-multi-region-search-store-and-review-scraper/SKILL.md) | AliExpress | `title`, `salePrice`, `originalPrice`, `discountPercent`, `rating` |  |
+| 2 | [AliExpress Multi-Region Search, Store & Review Scraper](skills/aliexpress-multi-region-search-store-and-review-scraper/SKILL.md) | AliExpress | `title`, `salePrice`, `originalPrice`, `discountPercent`, `rating` | [Watch](https://www.youtube.com/shorts/lY2MQAk6oJA) |
 | 3 | [Amazon Customer Review & Rating Summary Scraper](skills/amazon-customer-review-and-rating-summary-scraper/SKILL.md) | Amazon | `productAsin`, `ratingScore`, `reviewTitle`, `reviewDescription`, `isVerified` | [Watch](https://www.youtube.com/shorts/WhVOks5q4MU) |
 | 4 | [Amazon Multi-Domain Product Price & Detail Scraper](skills/amazon-multi-domain-product-price-and-detail-scraper/SKILL.md) | Amazon | `title`, `asin`, `price`, `stars`, `reviewsCount` | [Watch](https://www.youtube.com/shorts/SqsDoB0jyD8) |
 | 5 | [Amazon Review Aggregates & Extended History Scraper](skills/amazon-review-aggregates-and-extended-history-scraper/SKILL.md) | Amazon | `productAsin`, `ratingScore`, `reviewTitle`, `reviewDescription`, `isVerified` |  |
-| 6 | [Booking.com Hotel Price & Amenity Search Scraper](skills/booking-com-hotel-price-and-amenity-search-scraper/SKILL.md) | Booking.com | `name`, `price`, `pricePerNight`, `rating`, `reviewCount` |  |
+| 6 | [Booking.com Hotel Price & Amenity Search Scraper](skills/booking-com-hotel-price-and-amenity-search-scraper/SKILL.md) | Booking.com | `name`, `price`, `pricePerNight`, `rating`, `reviewCount` | [Watch](https://www.youtube.com/shorts/jQWhZPI54SI) |
 | 7 | [Facebook Marketplace Listing & Price Extractor](skills/facebook-marketplace-listing-and-price-extractor/SKILL.md) | Facebook Marketplace | `title`, `price`, `city`, `state`, `locationText` |  |
 | 8 | [Google Maps Business Lead & Email Finder](skills/google-maps-business-lead-and-email-finder/SKILL.md) | Google Maps | `name`, `googleBusinessCategories`, `phoneNumber`, `email`, `reviewScore` | [Watch](https://www.youtube.com/shorts/ofD2844kDPQ) |
 | 9 | [Google Maps Grid-Based Market Saturation Scanner](skills/google-maps-grid-based-market-saturation-scanner/SKILL.md) | Google Maps | `name`, `categoryName`, `totalScore`, `reviewsCount`, `phone` | [Watch](https://www.youtube.com/shorts/uom3-Fy_xFk) |
@@ -99,8 +100,9 @@ Output fields are the Actor's own column names, read from its dataset schema at 
 | 15 | [Shopify Store Catalog & Pricing Extractor](skills/shopify-store-catalog-and-pricing-extractor/SKILL.md) | Shopify | `title`, `price`, `compareAtPrice`, `available`, `vendor` | [Watch](https://www.youtube.com/shorts/398NV7q-K6w) |
 | 16 | [TikTok Hashtag Momentum & Top Creator Tracker](skills/tiktok-hashtag-momentum-and-top-creator-tracker/SKILL.md) | TikTok | `rankIndex`, `hashtagName`, `publishCnt`, `vv` | [Watch](https://www.youtube.com/shorts/C3buLaYtlGg) |
 | 17 | [US Walkability, Transit & Bike Score Extractor](skills/us-walkability-transit-and-bike-score-extractor/SKILL.md) | Walk Score | `address`, `city`, `walkScore`, `transitScore`, `bikeScore` | [Watch](https://www.youtube.com/shorts/yCT9c3LRopU) |
-| 18 | [Website Contact Page Email & Phone Crawler](skills/website-contact-page-email-and-phone-crawler/SKILL.md) | Any website | `websiteUrl`, `status`, `emails`, `primaryEmail`, `phones` | [Watch](https://www.youtube.com/shorts/MHdeuiVwMZA) |
-| 19 | [Zillow For-Sale, Rent & Sold Listing Extractor](skills/zillow-for-sale-rent-and-sold-listing-extractor/SKILL.md) | Zillow | `address`, `price`, `soldPrice`, `beds`, `baths` | [Watch](https://www.youtube.com/shorts/bNjKOMdRlSY) |
+| 18 | [We Work Remotely Job Listings & Salary Extractor](skills/we-work-remotely-job-listings-and-salary-extractor/SKILL.md) | We Work Remotely | `title`, `company`, `category`, `salary`, `postedAt` |  |
+| 19 | [Website Contact Page Email & Phone Crawler](skills/website-contact-page-email-and-phone-crawler/SKILL.md) | Any website | `websiteUrl`, `status`, `emails`, `primaryEmail`, `phones` | [Watch](https://www.youtube.com/shorts/MHdeuiVwMZA) |
+| 20 | [Zillow For-Sale, Rent & Sold Listing Extractor](skills/zillow-for-sale-rent-and-sold-listing-extractor/SKILL.md) | Zillow | `address`, `price`, `soldPrice`, `beds`, `baths` | [Watch](https://www.youtube.com/shorts/bNjKOMdRlSY) |
 
 ## FAQ
 
