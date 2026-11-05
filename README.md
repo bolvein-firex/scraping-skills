@@ -153,6 +153,10 @@ skills/<skill-name>/
 - n8n workflows for the same Actors: https://github.com/bolvein-firex/scraping-n8n-workflows
 - Short video breakdowns: https://www.youtube.com/@ScraperFinder
 
+## Contributing
+
+Missing a site? [Request a skill](https://github.com/bolvein-firex/scraping-skills/issues/new/choose). Questions go to [Discussions](https://github.com/bolvein-firex/scraping-skills/discussions). See [CONTRIBUTING.md](CONTRIBUTING.md).
+
 ## Guardrails
 
 Public data only. Do not use these skills for private, login-protected or paywalled data. Respect robots.txt, site terms and local law.
