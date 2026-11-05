@@ -13,6 +13,9 @@ Reads We Work Remotely category pages or keyword search results and follows each
 - Input schema: `references/input-schema.json`
 - Output fields: `references/output-fields.json`
 
+Short video breakdown:
+- [Stop copying remote salaries; put roles in one sheet](https://www.youtube.com/shorts/aJWSYR7WvXE)
+
 ## When to use
 
 Use this skill when the user wants:
