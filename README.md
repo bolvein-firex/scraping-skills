@@ -2,7 +2,7 @@
 
 Agent skills (SKILL.md) for Claude Code and other agents that pull public web data from Google Maps, Amazon, Shopify, Zillow, Airbnb, Indeed, TikTok, Reddit and 25 more sources through Apify Actors and return named fields as JSON.
 
-**39 skills** · 23 with a YouTube Short · last updated 2026-11-06 · MIT licence
+**40 skills** · 23 with a YouTube Short · last updated 2026-11-06 · MIT licence
 
 ## Quick start
 
@@ -84,6 +84,7 @@ node ~/.claude/skills/aliexpress-multi-region-search-store-and-review-scraper/sc
 | TikTok trending hashtags | [tiktok-hashtag-momentum-and-top-creator-tracker](skills/tiktok-hashtag-momentum-and-top-creator-tracker/SKILL.md) | `rankIndex`, `hashtagName`, `publishCnt`, `vv` |
 | TikTok keyword search scraper | [tiktok-keyword-search-and-discovery-scraper](skills/tiktok-keyword-search-and-discovery-scraper/SKILL.md) | `rank`, `caption`, `playCount`, `likeCount`, `commentCount` |
 | TikTok verified mention | [tiktok-verified-mention-tracker](skills/tiktok-verified-mention-tracker/SKILL.md) | `targetUsername`, `postUrl`, `author.followerCount`, `playCount`, `likeCount` |
+| YouTube caption scraper | [youtube-caption-and-whisper-ai-transcript-extractor](skills/youtube-caption-and-whisper-ai-transcript-extractor/SKILL.md) | `video_id`, `title`, `channel_name`, `publishedAt`, `transcript_language` |
 | YouTube video comment scraper | [youtube-video-comment-and-reply-thread-scraper](skills/youtube-video-comment-and-reply-thread-scraper/SKILL.md) | `authorName`, `text`, `likeCount`, `replyCount`, `isHearted` |
 
 ### Reviews
@@ -144,8 +145,9 @@ Output fields are the Actor's own column names, read from its dataset schema at 
 | 35 | [We Work Remotely Job Listings & Salary Extractor](skills/we-work-remotely-job-listings-and-salary-extractor/SKILL.md) | We Work Remotely | `title`, `company`, `category`, `salary`, `postedAt` | [Watch](https://www.youtube.com/shorts/aJWSYR7WvXE) |
 | 36 | [Website Contact Page Email & Phone Crawler](skills/website-contact-page-email-and-phone-crawler/SKILL.md) | Any website | `websiteUrl`, `status`, `emails`, `primaryEmail`, `phones` | [Watch](https://www.youtube.com/shorts/MHdeuiVwMZA) |
 | 37 | [Workday Careers Site Job Listings Extractor](skills/workday-careers-site-job-listings-extractor/SKILL.md) | Workday | `title`, `tenant`, `location`, `postedOn` | [Watch](https://www.youtube.com/shorts/cP29fxKOpvM) |
-| 38 | [YouTube Video Comment & Reply Thread Scraper](skills/youtube-video-comment-and-reply-thread-scraper/SKILL.md) | YouTube | `authorName`, `text`, `likeCount`, `replyCount`, `isHearted` |  |
-| 39 | [Zillow For-Sale, Rent & Sold Listing Extractor](skills/zillow-for-sale-rent-and-sold-listing-extractor/SKILL.md) | Zillow | `address`, `price`, `soldPrice`, `beds`, `baths` | [Watch](https://www.youtube.com/shorts/bNjKOMdRlSY) |
+| 38 | [YouTube Caption & Whisper AI Transcript Extractor](skills/youtube-caption-and-whisper-ai-transcript-extractor/SKILL.md) | YouTube | `video_id`, `title`, `channel_name`, `publishedAt`, `transcript_language` |  |
+| 39 | [YouTube Video Comment & Reply Thread Scraper](skills/youtube-video-comment-and-reply-thread-scraper/SKILL.md) | YouTube | `authorName`, `text`, `likeCount`, `replyCount`, `isHearted` |  |
+| 40 | [Zillow For-Sale, Rent & Sold Listing Extractor](skills/zillow-for-sale-rent-and-sold-listing-extractor/SKILL.md) | Zillow | `address`, `price`, `soldPrice`, `beds`, `baths` | [Watch](https://www.youtube.com/shorts/bNjKOMdRlSY) |
 
 ## FAQ
 
