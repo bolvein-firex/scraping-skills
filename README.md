@@ -1,6 +1,6 @@
 # Scraping Skills
 
-Agent skills (SKILL.md) for Claude Code and other agents that pull public web data from Google Maps, Amazon, Shopify, Zillow, Airbnb, Indeed, TikTok, Reddit and 21 more sources through Apify Actors and return named fields as JSON.
+Agent skills (SKILL.md) for Claude Code and other agents that pull public web data from Google Maps, Amazon, Shopify, Zillow, Airbnb, Indeed, TikTok, Reddit and 20 more sources through Apify Actors and return named fields as JSON.
 
 **34 skills** · 23 with a YouTube Short · last updated 2026-11-06 · MIT licence
 
@@ -36,6 +36,7 @@ node ~/.claude/skills/aliexpress-multi-region-search-store-and-review-scraper/sc
 | Job | Skill | Returns |
 |---|---|---|
 | AliExpress product search export | [aliexpress-multi-region-search-store-and-review-scraper](skills/aliexpress-multi-region-search-store-and-review-scraper/SKILL.md) | `title`, `salePrice`, `originalPrice`, `discountPercent`, `rating` |
+| Amazon deals grid | [amazon-deals-grid-tracker-by-category-and-discount](skills/amazon-deals-grid-tracker-by-category-and-discount/SKILL.md) | `asin`, `title`, `dealPrice`, `savingsPercent`, `averageRating` |
 | Amazon price tracking | [amazon-multi-domain-product-price-and-detail-scraper](skills/amazon-multi-domain-product-price-and-detail-scraper/SKILL.md) | `title`, `asin`, `price`, `stars`, `reviewsCount` |
 | Facebook Marketplace scraper | [facebook-marketplace-listing-and-price-extractor](skills/facebook-marketplace-listing-and-price-extractor/SKILL.md) | `title`, `price`, `city`, `state`, `locationText` |
 | Google Shopping price comparison | [google-shopping-price-comparison-and-deal-finder](skills/google-shopping-price-comparison-and-deal-finder/SKILL.md) | `title`, `price`, `merchant`, `rating`, `reviewCount` |
@@ -91,7 +92,6 @@ node ~/.claude/skills/aliexpress-multi-region-search-store-and-review-scraper/sc
 
 | Job | Skill | Returns |
 |---|---|---|
-| ESPN scores, standings, teams | [espn-scores-standings-teams-and-news-by-league](skills/espn-scores-standings-teams-and-news-by-league/SKILL.md) | `mode`, `sport`, `league`, `homeScore`, `awayScore` |
 | MLB teams, player search | [mlb-teams-player-search-and-season-schedule-lookup](skills/mlb-teams-player-search-and-season-schedule-lookup/SKILL.md) | `teamName`, `playerName`, `eventName`, `homeTeam`, `awayTeam` |
 | Multi-League season results | [multi-league-season-results-and-team-lookup](skills/multi-league-season-results-and-team-lookup/SKILL.md) | `homeTeam`, `awayTeam`, `homeScore`, `awayScore`, `matchDate` |
 | SofaScore live scores, standings | [sofascore-live-scores-standings-and-team-search-data](skills/sofascore-live-scores-standings-and-team-search-data/SKILL.md) | `name`, `homeTeam`, `awayTeam`, `homeScore`, `awayScore` |
@@ -105,10 +105,10 @@ Output fields are the Actor's own column names, read from its dataset schema at 
 | 1 | [Airbnb Listing Price & Location Finder](skills/airbnb-listing-price-and-location-finder/SKILL.md) | Airbnb | `name`, `nightlyPrice`, `totalPrice`, `rating`, `reviewCount` | [Watch](https://www.youtube.com/shorts/aVEDRMB3vsU) |
 | 2 | [AliExpress Multi-Region Search, Store & Review Scraper](skills/aliexpress-multi-region-search-store-and-review-scraper/SKILL.md) | AliExpress | `title`, `salePrice`, `originalPrice`, `discountPercent`, `rating` | [Watch](https://www.youtube.com/shorts/lY2MQAk6oJA) |
 | 3 | [Amazon Customer Review & Rating Summary Scraper](skills/amazon-customer-review-and-rating-summary-scraper/SKILL.md) | Amazon | `productAsin`, `ratingScore`, `reviewTitle`, `reviewDescription`, `isVerified` | [Watch](https://www.youtube.com/shorts/WhVOks5q4MU) |
-| 4 | [Amazon Multi-Domain Product Price & Detail Scraper](skills/amazon-multi-domain-product-price-and-detail-scraper/SKILL.md) | Amazon | `title`, `asin`, `price`, `stars`, `reviewsCount` | [Watch](https://www.youtube.com/shorts/SqsDoB0jyD8) |
-| 5 | [Amazon Review Aggregates & Extended History Scraper](skills/amazon-review-aggregates-and-extended-history-scraper/SKILL.md) | Amazon | `productAsin`, `ratingScore`, `reviewTitle`, `reviewDescription`, `isVerified` |  |
-| 6 | [Booking.com Hotel Price & Amenity Search Scraper](skills/booking-com-hotel-price-and-amenity-search-scraper/SKILL.md) | Booking.com | `name`, `price`, `pricePerNight`, `rating`, `reviewCount` | [Watch](https://www.youtube.com/shorts/jQWhZPI54SI) |
-| 7 | [ESPN Scores, Standings, Teams & News by League](skills/espn-scores-standings-teams-and-news-by-league/SKILL.md) | ESPN | `mode`, `sport`, `league`, `homeScore`, `awayScore` |  |
+| 4 | [Amazon Deals Grid Tracker by Category & Discount](skills/amazon-deals-grid-tracker-by-category-and-discount/SKILL.md) | Amazon | `asin`, `title`, `dealPrice`, `savingsPercent`, `averageRating` |  |
+| 5 | [Amazon Multi-Domain Product Price & Detail Scraper](skills/amazon-multi-domain-product-price-and-detail-scraper/SKILL.md) | Amazon | `title`, `asin`, `price`, `stars`, `reviewsCount` | [Watch](https://www.youtube.com/shorts/SqsDoB0jyD8) |
+| 6 | [Amazon Review Aggregates & Extended History Scraper](skills/amazon-review-aggregates-and-extended-history-scraper/SKILL.md) | Amazon | `productAsin`, `ratingScore`, `reviewTitle`, `reviewDescription`, `isVerified` |  |
+| 7 | [Booking.com Hotel Price & Amenity Search Scraper](skills/booking-com-hotel-price-and-amenity-search-scraper/SKILL.md) | Booking.com | `name`, `price`, `pricePerNight`, `rating`, `reviewCount` | [Watch](https://www.youtube.com/shorts/jQWhZPI54SI) |
 | 8 | [Facebook Marketplace Listing & Price Extractor](skills/facebook-marketplace-listing-and-price-extractor/SKILL.md) | Facebook Marketplace | `title`, `price`, `city`, `state`, `locationText` |  |
 | 9 | [Fiverr Gig & Seller Sitemap Directory Scraper](skills/fiverr-gig-and-seller-sitemap-directory-scraper/SKILL.md) | Fiverr | `title`, `gigUrl`, `priceMin`, `priceMax`, `rating` | [Watch](https://www.youtube.com/shorts/JsVKl5TOvJE) |
 | 10 | [Google Flights Fare & Itinerary Filter Scraper](skills/google-flights-fare-and-itinerary-filter-scraper/SKILL.md) | Google Flights | `price`, `airline`, `departureAirport`, `departureTime`, `arrivalAirport` |  |
