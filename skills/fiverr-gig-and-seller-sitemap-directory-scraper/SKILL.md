@@ -13,6 +13,9 @@ List live Fiverr gigs, seller profiles, categories, search tags and Logo Maker i
 - Input schema: `references/input-schema.json`
 - Output fields: `references/output-fields.json`
 
+Short video breakdown:
+- [Stop copying Fiverr profiles; build one shortlist](https://www.youtube.com/shorts/JsVKl5TOvJE)
+
 ## When to use
 
 Use this skill when the user wants:

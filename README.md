@@ -1,8 +1,8 @@
 # Scraping Skills
 
-Agent skills (SKILL.md) for Claude Code and other agents that pull public web data from Google Maps, Amazon, Shopify, Zillow, Airbnb, Indeed, TikTok, Reddit and 16 more sources through Apify Actors and return named fields as JSON.
+Agent skills (SKILL.md) for Claude Code and other agents that pull public web data from Google Maps, Amazon, Shopify, Zillow, Airbnb, Indeed, TikTok, Reddit and 18 more sources through Apify Actors and return named fields as JSON.
 
-**29 skills** · 19 with a YouTube Short · last updated 2026-11-06 · MIT licence
+**31 skills** · 23 with a YouTube Short · last updated 2026-11-06 · MIT licence
 
 ## Quick start
 
@@ -54,6 +54,7 @@ node ~/.claude/skills/aliexpress-multi-region-search-store-and-review-scraper/sc
 |---|---|---|
 | Airbnb price scraper | [airbnb-listing-price-and-location-finder](skills/airbnb-listing-price-and-location-finder/SKILL.md) | `name`, `nightlyPrice`, `totalPrice`, `rating`, `reviewCount` |
 | Booking.com hotel prices for your dates | [booking-com-hotel-price-and-amenity-search-scraper](skills/booking-com-hotel-price-and-amenity-search-scraper/SKILL.md) | `name`, `price`, `pricePerNight`, `rating`, `reviewCount` |
+| Google Flights fare scraper | [google-flights-fare-and-itinerary-filter-scraper](skills/google-flights-fare-and-itinerary-filter-scraper/SKILL.md) | `price`, `airline`, `departureAirport`, `departureTime`, `arrivalAirport` |
 
 ### Jobs and salaries
 
@@ -86,6 +87,12 @@ node ~/.claude/skills/aliexpress-multi-region-search-store-and-review-scraper/sc
 | Amazon review scraper | [amazon-customer-review-and-rating-summary-scraper](skills/amazon-customer-review-and-rating-summary-scraper/SKILL.md) | `productAsin`, `ratingScore`, `reviewTitle`, `reviewDescription`, `isVerified` |
 | Amazon reviews across marketplaces | [amazon-review-aggregates-and-extended-history-scraper](skills/amazon-review-aggregates-and-extended-history-scraper/SKILL.md) | `productAsin`, `ratingScore`, `reviewTitle`, `reviewDescription`, `isVerified` |
 
+### Other public data
+
+| Job | Skill | Returns |
+|---|---|---|
+| SofaScore live scores, standings | [sofascore-live-scores-standings-and-team-search-data](skills/sofascore-live-scores-standings-and-team-search-data/SKILL.md) | `name`, `homeTeam`, `awayTeam`, `homeScore`, `awayScore` |
+
 ## All skills
 
 Output fields are the Actor's own column names, read from its dataset schema at publish time.
@@ -99,28 +106,30 @@ Output fields are the Actor's own column names, read from its dataset schema at 
 | 5 | [Amazon Review Aggregates & Extended History Scraper](skills/amazon-review-aggregates-and-extended-history-scraper/SKILL.md) | Amazon | `productAsin`, `ratingScore`, `reviewTitle`, `reviewDescription`, `isVerified` |  |
 | 6 | [Booking.com Hotel Price & Amenity Search Scraper](skills/booking-com-hotel-price-and-amenity-search-scraper/SKILL.md) | Booking.com | `name`, `price`, `pricePerNight`, `rating`, `reviewCount` | [Watch](https://www.youtube.com/shorts/jQWhZPI54SI) |
 | 7 | [Facebook Marketplace Listing & Price Extractor](skills/facebook-marketplace-listing-and-price-extractor/SKILL.md) | Facebook Marketplace | `title`, `price`, `city`, `state`, `locationText` |  |
-| 8 | [Fiverr Gig & Seller Sitemap Directory Scraper](skills/fiverr-gig-and-seller-sitemap-directory-scraper/SKILL.md) | Fiverr | `title`, `gigUrl`, `priceMin`, `priceMax`, `rating` |  |
-| 9 | [Google Maps Business Lead & Email Finder](skills/google-maps-business-lead-and-email-finder/SKILL.md) | Google Maps | `name`, `googleBusinessCategories`, `phoneNumber`, `email`, `reviewScore` | [Watch](https://www.youtube.com/shorts/ofD2844kDPQ) |
-| 10 | [Google Maps Grid-Based Market Saturation Scanner](skills/google-maps-grid-based-market-saturation-scanner/SKILL.md) | Google Maps | `name`, `categoryName`, `totalScore`, `reviewsCount`, `phone` | [Watch](https://www.youtube.com/shorts/uom3-Fy_xFk) |
-| 11 | [Google Shopping Price Comparison & Deal Finder](skills/google-shopping-price-comparison-and-deal-finder/SKILL.md) | Google Shopping | `title`, `price`, `merchant`, `rating`, `reviewCount` |  |
-| 12 | [Google Trends Interest & Related Query Scraper](skills/google-trends-interest-and-related-query-scraper/SKILL.md) | Google Trends | `searchTerms`, `title`, `geoName`, `averageInterest`, `growthPercent` | [Watch](https://www.youtube.com/shorts/gDZBpA25UB8) |
-| 13 | [Greenhouse ATS Job Board Lookup by Company](skills/greenhouse-ats-job-board-lookup-by-company/SKILL.md) | Greenhouse | `title`, `companySlug`, `companyName`, `location`, `departments` |  |
-| 14 | [Himalayas Remote Job Finder with Salary & Tech Stack](skills/himalayas-remote-job-finder-with-salary-and-tech-stack/SKILL.md) | Himalayas | `title`, `company`, `salaryMin`, `salaryMax`, `salaryPeriod` |  |
-| 15 | [Indeed Global Job Scraper with Company Salary Reports](skills/indeed-global-job-scraper-with-company-salary-reports/SKILL.md) | Indeed | `positionName`, `displayTitle`, `company`, `rating`, `salary` | [Watch](https://www.youtube.com/shorts/33f3pNEO6Oc) |
-| 16 | [Lever Job Board Postings by Company Slug](skills/lever-job-board-postings-by-company-slug/SKILL.md) | Lever | `title`, `companySlug`, `location`, `salaryText`, `createdAt` |  |
-| 17 | [NetEase Cloud Music Song, Chart & Playlist Scraper](skills/netease-cloud-music-song-chart-and-playlist-scraper/SKILL.md) | NetEase Cloud Music | `name`, `artist`, `album`, `rankPosition`, `playlistName` |  |
-| 18 | [New Jersey Business Registry Lookup & Name Checker](skills/new-jersey-business-registry-lookup-and-name-checker/SKILL.md) | NJ business registry | `businessName`, `entityTypeAbbr`, `entityTypeFull`, `city`, `incorporatedDate` | [Watch](https://www.youtube.com/shorts/tGV77V4rMqk) |
-| 19 | [Reddit Multi-Mode Scraper for Posts, Comments & Profiles](skills/reddit-multi-mode-scraper-for-posts-comments-and-profiles/SKILL.md) | Reddit | `subreddit_prefixed`, `title`, `author`, `score`, `commentCount` | [Watch](https://www.youtube.com/shorts/3TmxkUNaB0U) |
-| 20 | [Shopify Store Catalog & Pricing Extractor](skills/shopify-store-catalog-and-pricing-extractor/SKILL.md) | Shopify | `title`, `price`, `compareAtPrice`, `available`, `vendor` | [Watch](https://www.youtube.com/shorts/398NV7q-K6w) |
-| 21 | [startup.jobs Category & Keyword Job Scraper](skills/startup-jobs-category-and-keyword-job-scraper/SKILL.md) | startup.jobs | `title`, `company`, `location`, `salary`, `postedAt` | [Watch](https://www.youtube.com/shorts/SOMB7J9-Iak) |
-| 22 | [TikTok Hashtag Momentum & Top Creator Tracker](skills/tiktok-hashtag-momentum-and-top-creator-tracker/SKILL.md) | TikTok | `rankIndex`, `hashtagName`, `publishCnt`, `vv` | [Watch](https://www.youtube.com/shorts/C3buLaYtlGg) |
-| 23 | [TikTok Keyword Search & Discovery Scraper](skills/tiktok-keyword-search-and-discovery-scraper/SKILL.md) | TikTok | `rank`, `caption`, `playCount`, `likeCount`, `commentCount` |  |
-| 24 | [TikTok Verified Mention Tracker](skills/tiktok-verified-mention-tracker/SKILL.md) | TikTok | `targetUsername`, `postUrl`, `author.followerCount`, `playCount`, `likeCount` |  |
-| 25 | [US Walkability, Transit & Bike Score Extractor](skills/us-walkability-transit-and-bike-score-extractor/SKILL.md) | Walk Score | `address`, `city`, `walkScore`, `transitScore`, `bikeScore` | [Watch](https://www.youtube.com/shorts/yCT9c3LRopU) |
-| 26 | [We Work Remotely Job Listings & Salary Extractor](skills/we-work-remotely-job-listings-and-salary-extractor/SKILL.md) | We Work Remotely | `title`, `company`, `category`, `salary`, `postedAt` | [Watch](https://www.youtube.com/shorts/aJWSYR7WvXE) |
-| 27 | [Website Contact Page Email & Phone Crawler](skills/website-contact-page-email-and-phone-crawler/SKILL.md) | Any website | `websiteUrl`, `status`, `emails`, `primaryEmail`, `phones` | [Watch](https://www.youtube.com/shorts/MHdeuiVwMZA) |
-| 28 | [Workday Careers Site Job Listings Extractor](skills/workday-careers-site-job-listings-extractor/SKILL.md) | Workday | `title`, `tenant`, `location`, `postedOn` | [Watch](https://www.youtube.com/shorts/cP29fxKOpvM) |
-| 29 | [Zillow For-Sale, Rent & Sold Listing Extractor](skills/zillow-for-sale-rent-and-sold-listing-extractor/SKILL.md) | Zillow | `address`, `price`, `soldPrice`, `beds`, `baths` | [Watch](https://www.youtube.com/shorts/bNjKOMdRlSY) |
+| 8 | [Fiverr Gig & Seller Sitemap Directory Scraper](skills/fiverr-gig-and-seller-sitemap-directory-scraper/SKILL.md) | Fiverr | `title`, `gigUrl`, `priceMin`, `priceMax`, `rating` | [Watch](https://www.youtube.com/shorts/JsVKl5TOvJE) |
+| 9 | [Google Flights Fare & Itinerary Filter Scraper](skills/google-flights-fare-and-itinerary-filter-scraper/SKILL.md) | Google Flights | `price`, `airline`, `departureAirport`, `departureTime`, `arrivalAirport` |  |
+| 10 | [Google Maps Business Lead & Email Finder](skills/google-maps-business-lead-and-email-finder/SKILL.md) | Google Maps | `name`, `googleBusinessCategories`, `phoneNumber`, `email`, `reviewScore` | [Watch](https://www.youtube.com/shorts/ofD2844kDPQ) |
+| 11 | [Google Maps Grid-Based Market Saturation Scanner](skills/google-maps-grid-based-market-saturation-scanner/SKILL.md) | Google Maps | `name`, `categoryName`, `totalScore`, `reviewsCount`, `phone` | [Watch](https://www.youtube.com/shorts/uom3-Fy_xFk) |
+| 12 | [Google Shopping Price Comparison & Deal Finder](skills/google-shopping-price-comparison-and-deal-finder/SKILL.md) | Google Shopping | `title`, `price`, `merchant`, `rating`, `reviewCount` |  |
+| 13 | [Google Trends Interest & Related Query Scraper](skills/google-trends-interest-and-related-query-scraper/SKILL.md) | Google Trends | `searchTerms`, `title`, `geoName`, `averageInterest`, `growthPercent` | [Watch](https://www.youtube.com/shorts/gDZBpA25UB8) |
+| 14 | [Greenhouse ATS Job Board Lookup by Company](skills/greenhouse-ats-job-board-lookup-by-company/SKILL.md) | Greenhouse | `title`, `companySlug`, `companyName`, `location`, `departments` |  |
+| 15 | [Himalayas Remote Job Finder with Salary & Tech Stack](skills/himalayas-remote-job-finder-with-salary-and-tech-stack/SKILL.md) | Himalayas | `title`, `company`, `salaryMin`, `salaryMax`, `salaryPeriod` | [Watch](https://www.youtube.com/shorts/OwuknGY8obI) |
+| 16 | [Indeed Global Job Scraper with Company Salary Reports](skills/indeed-global-job-scraper-with-company-salary-reports/SKILL.md) | Indeed | `positionName`, `displayTitle`, `company`, `rating`, `salary` | [Watch](https://www.youtube.com/shorts/33f3pNEO6Oc) |
+| 17 | [Lever Job Board Postings by Company Slug](skills/lever-job-board-postings-by-company-slug/SKILL.md) | Lever | `title`, `companySlug`, `location`, `salaryText`, `createdAt` | [Watch](https://www.youtube.com/shorts/Fj8lsPbASu0) |
+| 18 | [NetEase Cloud Music Song, Chart & Playlist Scraper](skills/netease-cloud-music-song-chart-and-playlist-scraper/SKILL.md) | NetEase Cloud Music | `name`, `artist`, `album`, `rankPosition`, `playlistName` | [Watch](https://www.youtube.com/shorts/k3LbS3Z4Eqc) |
+| 19 | [New Jersey Business Registry Lookup & Name Checker](skills/new-jersey-business-registry-lookup-and-name-checker/SKILL.md) | NJ business registry | `businessName`, `entityTypeAbbr`, `entityTypeFull`, `city`, `incorporatedDate` | [Watch](https://www.youtube.com/shorts/tGV77V4rMqk) |
+| 20 | [Reddit Multi-Mode Scraper for Posts, Comments & Profiles](skills/reddit-multi-mode-scraper-for-posts-comments-and-profiles/SKILL.md) | Reddit | `subreddit_prefixed`, `title`, `author`, `score`, `commentCount` | [Watch](https://www.youtube.com/shorts/3TmxkUNaB0U) |
+| 21 | [Shopify Store Catalog & Pricing Extractor](skills/shopify-store-catalog-and-pricing-extractor/SKILL.md) | Shopify | `title`, `price`, `compareAtPrice`, `available`, `vendor` | [Watch](https://www.youtube.com/shorts/398NV7q-K6w) |
+| 22 | [SofaScore Live Scores, Standings & Team Search Data](skills/sofascore-live-scores-standings-and-team-search-data/SKILL.md) | SofaScore | `name`, `homeTeam`, `awayTeam`, `homeScore`, `awayScore` |  |
+| 23 | [startup.jobs Category & Keyword Job Scraper](skills/startup-jobs-category-and-keyword-job-scraper/SKILL.md) | startup.jobs | `title`, `company`, `location`, `salary`, `postedAt` | [Watch](https://www.youtube.com/shorts/SOMB7J9-Iak) |
+| 24 | [TikTok Hashtag Momentum & Top Creator Tracker](skills/tiktok-hashtag-momentum-and-top-creator-tracker/SKILL.md) | TikTok | `rankIndex`, `hashtagName`, `publishCnt`, `vv` | [Watch](https://www.youtube.com/shorts/C3buLaYtlGg) |
+| 25 | [TikTok Keyword Search & Discovery Scraper](skills/tiktok-keyword-search-and-discovery-scraper/SKILL.md) | TikTok | `rank`, `caption`, `playCount`, `likeCount`, `commentCount` |  |
+| 26 | [TikTok Verified Mention Tracker](skills/tiktok-verified-mention-tracker/SKILL.md) | TikTok | `targetUsername`, `postUrl`, `author.followerCount`, `playCount`, `likeCount` |  |
+| 27 | [US Walkability, Transit & Bike Score Extractor](skills/us-walkability-transit-and-bike-score-extractor/SKILL.md) | Walk Score | `address`, `city`, `walkScore`, `transitScore`, `bikeScore` | [Watch](https://www.youtube.com/shorts/yCT9c3LRopU) |
+| 28 | [We Work Remotely Job Listings & Salary Extractor](skills/we-work-remotely-job-listings-and-salary-extractor/SKILL.md) | We Work Remotely | `title`, `company`, `category`, `salary`, `postedAt` | [Watch](https://www.youtube.com/shorts/aJWSYR7WvXE) |
+| 29 | [Website Contact Page Email & Phone Crawler](skills/website-contact-page-email-and-phone-crawler/SKILL.md) | Any website | `websiteUrl`, `status`, `emails`, `primaryEmail`, `phones` | [Watch](https://www.youtube.com/shorts/MHdeuiVwMZA) |
+| 30 | [Workday Careers Site Job Listings Extractor](skills/workday-careers-site-job-listings-extractor/SKILL.md) | Workday | `title`, `tenant`, `location`, `postedOn` | [Watch](https://www.youtube.com/shorts/cP29fxKOpvM) |
+| 31 | [Zillow For-Sale, Rent & Sold Listing Extractor](skills/zillow-for-sale-rent-and-sold-listing-extractor/SKILL.md) | Zillow | `address`, `price`, `soldPrice`, `beds`, `baths` | [Watch](https://www.youtube.com/shorts/bNjKOMdRlSY) |
 
 ## FAQ
 

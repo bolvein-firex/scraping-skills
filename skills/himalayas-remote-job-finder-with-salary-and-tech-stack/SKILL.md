@@ -13,6 +13,9 @@ Search Himalayas remote job listings by keyword or company and get salary range,
 - Input schema: `references/input-schema.json`
 - Output fields: `references/output-fields.json`
 
+Short video breakdown:
+- [Build your remote role shortlist before lunch](https://www.youtube.com/shorts/OwuknGY8obI)
+
 ## When to use
 
 Use this skill when the user wants:

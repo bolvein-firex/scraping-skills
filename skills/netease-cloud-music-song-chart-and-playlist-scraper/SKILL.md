@@ -13,6 +13,9 @@ Search NetEase Cloud Music songs, fetch song details by URL, pull an artist's to
 - Input schema: `references/input-schema.json`
 - Output fields: `references/output-fields.json`
 
+Short video breakdown:
+- [Choose your next playlist from live charts](https://www.youtube.com/shorts/k3LbS3Z4Eqc)
+
 ## When to use
 
 Use this skill when the user wants:

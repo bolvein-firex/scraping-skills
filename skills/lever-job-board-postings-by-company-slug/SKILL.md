@@ -13,6 +13,9 @@ Pull open job postings from one or more Lever.co company boards, or fetch specif
 - Input schema: `references/input-schema.json`
 - Output fields: `references/output-fields.json`
 
+Short video breakdown:
+- [Weekly job board tracking in one sheet](https://www.youtube.com/shorts/Fj8lsPbASu0)
+
 ## When to use
 
 Use this skill when the user wants:
