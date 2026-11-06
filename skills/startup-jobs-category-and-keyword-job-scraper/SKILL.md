@@ -13,6 +13,9 @@ Collect startup job listings from startup.jobs by category and keyword, with tit
 - Input schema: `references/input-schema.json`
 - Output fields: `references/output-fields.json`
 
+Short video breakdown:
+- [See startup hiring before the weekly standup](https://www.youtube.com/shorts/SOMB7J9-Iak)
+
 ## When to use
 
 Use this skill when the user wants:

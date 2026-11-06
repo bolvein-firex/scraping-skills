@@ -13,6 +13,9 @@ Pull job postings from any company's Workday careers site: title, location, requ
 - Input schema: `references/input-schema.json`
 - Output fields: `references/output-fields.json`
 
+Short video breakdown:
+- [Stop checking Workday roles one by one](https://www.youtube.com/shorts/cP29fxKOpvM)
+
 ## When to use
 
 Use this skill when the user wants:
