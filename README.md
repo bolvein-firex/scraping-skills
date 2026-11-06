@@ -1,8 +1,8 @@
 # Scraping Skills
 
-Agent skills (SKILL.md) for Claude Code and other agents that pull public web data from Google Maps, Amazon, Shopify, Zillow, Airbnb, Indeed, TikTok, Reddit and 24 more sources through Apify Actors and return named fields as JSON.
+Agent skills (SKILL.md) for Claude Code and other agents that pull public web data from Google Maps, Amazon, Shopify, Zillow, Airbnb, Indeed, TikTok, Reddit and 25 more sources through Apify Actors and return named fields as JSON.
 
-**38 skills** · 23 with a YouTube Short · last updated 2026-11-06 · MIT licence
+**39 skills** · 23 with a YouTube Short · last updated 2026-11-06 · MIT licence
 
 ## Quick start
 
@@ -56,6 +56,7 @@ node ~/.claude/skills/aliexpress-multi-region-search-store-and-review-scraper/sc
 | Airbnb price scraper | [airbnb-listing-price-and-location-finder](skills/airbnb-listing-price-and-location-finder/SKILL.md) | `name`, `nightlyPrice`, `totalPrice`, `rating`, `reviewCount` |
 | Booking.com hotel prices for your dates | [booking-com-hotel-price-and-amenity-search-scraper](skills/booking-com-hotel-price-and-amenity-search-scraper/SKILL.md) | `name`, `price`, `pricePerNight`, `rating`, `reviewCount` |
 | Google Flights fare scraper | [google-flights-fare-and-itinerary-filter-scraper](skills/google-flights-fare-and-itinerary-filter-scraper/SKILL.md) | `price`, `airline`, `departureAirport`, `departureTime`, `arrivalAirport` |
+| Washington Trails Association hike | [washington-trails-association-hike-and-trip-report-finder](skills/washington-trails-association-hike-and-trip-report-finder/SKILL.md) | `trailName`, `region`, `lengthMiles`, `rating`, `reviewCount` |
 
 ### Jobs and salaries
 
@@ -139,11 +140,12 @@ Output fields are the Actor's own column names, read from its dataset schema at 
 | 31 | [TikTok Keyword Search & Discovery Scraper](skills/tiktok-keyword-search-and-discovery-scraper/SKILL.md) | TikTok | `rank`, `caption`, `playCount`, `likeCount`, `commentCount` |  |
 | 32 | [TikTok Verified Mention Tracker](skills/tiktok-verified-mention-tracker/SKILL.md) | TikTok | `targetUsername`, `postUrl`, `author.followerCount`, `playCount`, `likeCount` |  |
 | 33 | [US Walkability, Transit & Bike Score Extractor](skills/us-walkability-transit-and-bike-score-extractor/SKILL.md) | Walk Score | `address`, `city`, `walkScore`, `transitScore`, `bikeScore` | [Watch](https://www.youtube.com/shorts/yCT9c3LRopU) |
-| 34 | [We Work Remotely Job Listings & Salary Extractor](skills/we-work-remotely-job-listings-and-salary-extractor/SKILL.md) | We Work Remotely | `title`, `company`, `category`, `salary`, `postedAt` | [Watch](https://www.youtube.com/shorts/aJWSYR7WvXE) |
-| 35 | [Website Contact Page Email & Phone Crawler](skills/website-contact-page-email-and-phone-crawler/SKILL.md) | Any website | `websiteUrl`, `status`, `emails`, `primaryEmail`, `phones` | [Watch](https://www.youtube.com/shorts/MHdeuiVwMZA) |
-| 36 | [Workday Careers Site Job Listings Extractor](skills/workday-careers-site-job-listings-extractor/SKILL.md) | Workday | `title`, `tenant`, `location`, `postedOn` | [Watch](https://www.youtube.com/shorts/cP29fxKOpvM) |
-| 37 | [YouTube Video Comment & Reply Thread Scraper](skills/youtube-video-comment-and-reply-thread-scraper/SKILL.md) | YouTube | `authorName`, `text`, `likeCount`, `replyCount`, `isHearted` |  |
-| 38 | [Zillow For-Sale, Rent & Sold Listing Extractor](skills/zillow-for-sale-rent-and-sold-listing-extractor/SKILL.md) | Zillow | `address`, `price`, `soldPrice`, `beds`, `baths` | [Watch](https://www.youtube.com/shorts/bNjKOMdRlSY) |
+| 34 | [Washington Trails Association Hike & Trip Report Finder](skills/washington-trails-association-hike-and-trip-report-finder/SKILL.md) | Washington Trails Association | `trailName`, `region`, `lengthMiles`, `rating`, `reviewCount` |  |
+| 35 | [We Work Remotely Job Listings & Salary Extractor](skills/we-work-remotely-job-listings-and-salary-extractor/SKILL.md) | We Work Remotely | `title`, `company`, `category`, `salary`, `postedAt` | [Watch](https://www.youtube.com/shorts/aJWSYR7WvXE) |
+| 36 | [Website Contact Page Email & Phone Crawler](skills/website-contact-page-email-and-phone-crawler/SKILL.md) | Any website | `websiteUrl`, `status`, `emails`, `primaryEmail`, `phones` | [Watch](https://www.youtube.com/shorts/MHdeuiVwMZA) |
+| 37 | [Workday Careers Site Job Listings Extractor](skills/workday-careers-site-job-listings-extractor/SKILL.md) | Workday | `title`, `tenant`, `location`, `postedOn` | [Watch](https://www.youtube.com/shorts/cP29fxKOpvM) |
+| 38 | [YouTube Video Comment & Reply Thread Scraper](skills/youtube-video-comment-and-reply-thread-scraper/SKILL.md) | YouTube | `authorName`, `text`, `likeCount`, `replyCount`, `isHearted` |  |
+| 39 | [Zillow For-Sale, Rent & Sold Listing Extractor](skills/zillow-for-sale-rent-and-sold-listing-extractor/SKILL.md) | Zillow | `address`, `price`, `soldPrice`, `beds`, `baths` | [Watch](https://www.youtube.com/shorts/bNjKOMdRlSY) |
 
 ## FAQ
 
